@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header Styles */
 header {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://cdn0.bodas.net/vendor/1942/original/1280/jpg/imagen1_1_1942-174143561569608.webp') no-repeat center center;
     background-size: cover;
     height: 60vh;
     display: flex;
@@ -410,3 +410,141 @@ footer {
         top: -150px;
     }
 }
+
+/* PDF styles */
+.pdf-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    border-left: 4px solid #a88f5e;
+}
+
+.pdf-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pdf-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pdf-icon {
+    font-size: 2rem;
+}
+
+.pdf-details strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.pdf-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.pdf-button {
+    background-color: #a88f5e;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.pdf-button:hover {
+    background-color: #8e784c;
+}
+
+@media (max-width: 768px) {
+    .pdf-download {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Parking List */
+.parking-list {
+    margin: 1.5rem 0;
+}
+
+.parking-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border-left: 3px solid #a88f5e;
+}
+
+.parking-icon {
+    font-size: 1.5rem;
+    min-width: 30px;
+}
+
+.parking-details strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #333;
+}
+
+.parking-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.parking-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background-color: #a88f5e;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.parking-link:hover {
+    background-color: #8e784c;
+}
+
+.parking-note {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f0f8ff;
+    border-radius: 6px;
+    border-left: 4px solid #4a90e2;
+}
+
+.parking-note p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .pdf-download {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .parking-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .parking-icon {
+        min-width: auto;
+    }
+}
+
