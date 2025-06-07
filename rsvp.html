@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Marianela & Daniel's Wedding</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Marianela & Daniel</h1>
+            <p class="date">April 11, 2026</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="details.html">Details</a></li>
+            <li><a href="rsvp.html" class="active">RSVP</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="welcome">
+            <h2>RSVP to Our Wedding</h2>
+            <p>Please let us know if you'll be able to join us on our special day. We kindly request your response by Mars 11, 2026.</p>
+        </section>
+        
+        <!-- Custom confirmation that will be shown after form submission -->
+        <section id="custom-confirmation" class="form-container" style="display: none;">
+            <div class="confirmation-content">
+                <h3>Thank You!</h3>
+                <p>Your RSVP has been received. We look forward to celebrating with you!</p>
+                <p>If you need to update your response, please contact us directly.</p>
+                <a href="index.html" class="button">Return to Home</a>
+            </div>
+        </section>
+        
+        <!-- Google Form container -->
+        <section id="google-form-container" class="form-container">
+            <div class="google-form-container">
+                <iframe id="google-form" 
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSeelG8fN-NsqpAbFkOsk-njF7YsDxEsltkH589aCJOKVrMkYA/viewform?embedded=true" 
+                        width="100%" 
+                        height="1500" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0">
+                    Loading...
+                </iframe>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Marianela & Daniel's Wedding</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, checking for success parameter');
+            
+            // Check if URL contains success parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                console.log('Success parameter found, showing confirmation');
+                // Hide form and show confirmation
+                document.getElementById('google-form-container').style.display = 'none';
+                document.getElementById('custom-confirmation').style.display = 'block';
+                // Scroll to top for better user experience
+                window.scrollTo(0, 0);
+            } else {
+                console.log('Form display mode');
+                
+                // Get the iframe element
+                const formIframe = document.getElementById('google-form');
+                
+                // Method 1: Listen for iframe load events
+                formIframe.addEventListener('load', function() {
+                    console.log('Iframe loaded or changed');
+                    
+                    // Check if this is a load after submission
+                    setTimeout(function() {
+                        try {
+                            // Try to find confirmation text in the iframe
+                            if (formIframe.contentWindow.document.body.innerHTML.includes('Tu respuesta') || 
+                                formIframe.contentWindow.document.body.innerHTML.includes('Your response')) {
+                                console.log('Submission detected via iframe content');
+                                window.location.href = 'rsvp.html?success=true';
+                            }
+                        } catch(e) {
+                            console.log('Cannot access iframe content due to security restrictions:', e);
+                        }
+                    }, 1000);
+                });
+                
+                // Method 2: Use the standard message event listener
+                window.addEventListener('message', function(e) {
+                    console.log('Message received:', e.origin, typeof e.data, e.data);
+                    
+                    // Check if message is from Google Forms
+                    if (e.origin.includes('google.com')) {
+                        // Check for form submission indicators
+                        if (typeof e.data === 'string') {
+                            if (e.data.includes('formResponse') || 
+                                e.data.includes('submitted') || 
+                                e.data.includes('confirmation') || 
+                                e.data.includes('close')) {
+                                console.log('Form submission detected via message event');
+                                window.location.href = 'rsvp.html?success=true';
+                            }
+                        }
+                    }
+                });
+                
+                // Method 3: Set up a polling mechanism to check the iframe URL
+                let previousUrl = '';
+                const checkIframeUrl = setInterval(function() {
+                    try {
+                        const currentUrl = formIframe.contentWindow.location.href;
+                        console.log('Current iframe URL:', currentUrl);
+                        
+                        // If URL changed and contains submission indicators
+                        if (currentUrl !== previousUrl && 
+                           (currentUrl.includes('formResponse') || 
+                            currentUrl.includes('closedform'))) {
+                            console.log('Form submission detected via URL change');
+                            clearInterval(checkIframeUrl);
+                            window.location.href = 'rsvp.html?success=true';
+                        }
+                        
+                        previousUrl = currentUrl;
+                    } catch(e) {
+                        console.log('Cannot access iframe URL due to security restrictions');
+                    }
+                }, 1000);
+                
+                // Clear the interval after 5 minutes to prevent unnecessary resource usage
+                setTimeout(function() {
+                    clearInterval(checkIframeUrl);
+                    console.log('Stopped polling iframe URL');
+                }, 300000);
+                
+                // Method 4: Add manual button as fallback
+                // Add a small floating helper in case automatic detection fails
+                const helper = document.createElement('div');
+                helper.style.position = 'fixed';
+                helper.style.bottom = '20px';
+                helper.style.right = '20px';
+                helper.style.backgroundColor = '#a88f5e';
+                helper.style.color = 'white';
+                helper.style.padding = '10px 15px';
+                helper.style.borderRadius = '5px';
+                helper.style.cursor = 'pointer';
+                helper.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+                helper.style.zIndex = '1000';
+                helper.style.display = 'none'; // Hidden initially
+                helper.innerHTML = 'I submitted the form';
+                helper.onclick = function() {
+                    window.location.href = 'rsvp.html?success=true';
+                };
+                document.body.appendChild(helper);
+                
+                // Show the helper button after 15 seconds (giving automatic detection time to work)
+                setTimeout(function() {
+                    helper.style.display = 'block';
+                }, 15000);
+            }
+        });
+    </script>
+</body>
+</html>
