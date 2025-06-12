@@ -9,9 +9,9 @@ const translations = {
         // Home page
         header_date: "11 de abril, 2026",
         home_title: "¡Nos Casemos!",
-        home_description: "Será un enorme placer para nosotros el poder celebrar nuestro día especial contigo. Hemos hecho esta web para que tengas a mano toda la información sobre el evento. Ojo, que puede haber cambios de aquí al día de la boda. Ah, y no olvides hacer click en el botón de aquí abajo.",
+        home_description: "Será un enorme placer que vengas a celebrar nuestro día especia con nosotros. Hemos hecho esta web para que tengas a mano toda la información sobre el evento. Ojo, que puede haber cambios de aquí al día de la boda. Ah, y no olvides hacer click en el botón de aquí abajo.",
         rsvp_button: "Confirmar Asistencia",
-        countdown_title: "It's the final countdwon ...",
+        countdown_title: "It's the final countdown...",
         countdown_days: "Días",
         countdown_hours: "Horas",
         countdown_minutes: "Minutos",
@@ -26,7 +26,7 @@ const translations = {
         venue_date: "Fecha:",
         venue_time: "Hora:",
         venue_location: "Ubicación:",
-        venue_description: "La ceremonia y recepción se llevarán a cabo en el Antiguo Convento de la Encarnación de Boadilla del Monte. La ceremonia comenzará puntualmente a las 12:00 PM en la iglesia del propio convento, parte de la Parroquia de San Cristóbal. Para el cóctel de bienvenida nos moveremos al Claustro del Convento, y el banquete tendrá lugar en uno de sus salones.",
+        venue_description: "La ceremonia y recepción se llevarán a cabo en el Antiguo Convento de la Encarnación de Boadilla del Monte. La ceremonia comenzará puntualmente a las 12:00 PM en la iglesia del propio convento, parte de la Parroquia de San Cristóbal. Para el cóctel de bienvenida nos moveremos al Claustro del Convento y el banquete tendrá lugar en uno de sus salones",
         venue_information: "Información detallada para acceder al lugar (2 páginas)",
         download_pdf: "Descargar PDF",
         view_venue_guide: "Ver Guía del Lugar",
@@ -41,7 +41,7 @@ const translations = {
         parking_nacedero_desc: "Entrada del parque - A 8 minutos andando del convento",
 
         accommodations_title: "Alojamiento",
-        hotels_title: "Hoteles Recomendados",
+        hotels_title: "TBA",
         hotel_code: "Hemos conseguido una tarifa especial para nuestros invitados. Usa el código \"MARIANELYDANIEL\" al reservar.",
         hotel_boutique: "Un encantador hotel boutique a solo 5 minutos a pie del lugar.",
         
@@ -58,9 +58,9 @@ const translations = {
         
         dress_code_title: "Código de Vestimenta",
         formal_attire_title: "Vestimenta Formal",
-        dress_code_description: "Solicitamos amablemente que los invitados acudan con vestimenta formal a la celebración, evitando en la medida de lo posible atuendos casual, zapatillas deportivas, etc, y teniendo en cuenta tendrá lugar una ceremonia religiosa.",
+        dress_code_description: "Pedimos amablemente que todos los invitados acudan con vestimenta formal a la celebración, evitando en la medida de lo posible atuendos casual, zapatillas deportivas, etc, y teniendo en cuenta tendrá lugar una ceremonia religiosa.",
         dress_code_men: "Más allá de eso, no se requiere ningún tipo de vestimenta específico. La única restricción es que las mujeres no pueden ir de blanco o similar.",
-        dress_code_shoes: "Finalmente, recordar que la boda es en  Abril durante el día y que habrá que ajustarse a la climatología. La ceremonia tendrá lugar en la Iglesia del convento. El cóctel es en el Claustro del propio convento, que cuenta con un techo acristalado y climatización. El banquete muy probablemente tendrá lugar en uno de los salones del convento. Avisaremos con tiempo si esto cambia y decidimos que sea en uno de los patios exteriores. La fiesta con barra libre la haremos en una bodega climatizada, aunque habrá una zona de terraza al aire libre en la que se podrá estar.",
+        dress_code_shoes: "Finalmente, recordar que la boda es en  Abril durante el día y que habrá que adaptarse a la climatología. La ceremonia tendrá lugar en la Iglesia del propio convento. Para el cóctel de bienvenida pasaremos al claustro contiguo, que cuenta con un techo acristalado y climatización. El banquete muy probablemente tendrá lugar en uno de los salones del convento. Avisaremos con tiempo si esto cambia y decidimos que sea en uno de los patios exteriores. La fiesta con barra libre la haremos en una bodega climatizada, aunque habrá una zona de terraza al aire libre en la que se podrá estar.",
         
         registry_title: "Lista de Regalos",
         gifts_title: "Regalos de Boda",
@@ -69,7 +69,7 @@ const translations = {
         
         // RSVP page
         rsvp_title: "Confirma tu Asistencia a Nuestra Boda",
-        rsvp_description: "Por favor, necesitamos saber con antelación si podrás acompañarnos en nuestro día especial. Te pedimos amablemente tu respuesta antes del 11 de febrero de 2026.",
+        rsvp_description: "Por favor, necesitamos saber con antelación si podrás acompañarnos en nuestro día especial. Te pedimos amablemente tu respuesta antes del final de enero de 2026.",
         rsvp_thank_you: "¡Gracias!",
         rsvp_received: "Hemos recibido tus datos y confirmación de asistencia. ¡Nos vemos pronto!",
         rsvp_update: "Si necesitas modificar tu respuesta, por favor contáctanos directamente. En caso de cancelación, necesitamos saberlo antes de que termine marzo de 2026.",
@@ -119,7 +119,7 @@ const translations = {
         parking_nacedero_desc: "Park entrance - 8 minutes walk from the convent",
 
         accommodations_title: "Accommodations",
-        hotels_title: "Recommended Hotels",
+        hotels_title: "TBA",
         hotel_code: "We've arranged a special rate for our guests. Use code \"MARIANELYDANIEL\" when booking.",
         hotel_boutique: "A charming boutique hotel just a 5-minute walk from the venue.",
         
