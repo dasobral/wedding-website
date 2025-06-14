@@ -6,16 +6,74 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4;
     color: #333;
     background-color: #f9f9f9;
     font-size: 1.35rem;
 }
 
+/* OPTION 1: Didot Bold (Classic serif contrast) */
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-weight: normal;
+}
+
+
+/* OPTION 2: Bree Bold (Modern friendly serif) 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bree Serif", Georgia, serif;
+    font-weight: 400;
+}
+*/
+
+/* OPTION 3: Poiret One (Art Deco geometric caps) */
+
+/*
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Poiret One", "Futura", "Century Gothic", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase; 
+}
+*/
+
+/* OPTION 4: Playfair Display (Elegant serif with contrast) */
+/*
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700; 
+}
+*/
+
+/* OPTION 5: Baskerville (Classic readability) */
+/*
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Baskerville", "Georgia", serif;
+    font-weight: 700; 
+}
+*/
+
+
+/* OPTION 7: Henriette (Modern serif with contrast) */
+/*
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Henriette", "Georgia", serif;
+    font-weight: 700; 
+    text-transform: uppercase; 
+}
+*/
+
+/* Color Palette */
+
+:root {
+    --olive-buff: #a5a085;        /* 桑色白茶 - Olive Buff */
+    --carmine-red: #c73e1d;       /* 紅色 - Carmine Red */
+    --chromium-green: #6b8e4e;    /* 老緑 - Chromium Green */
+    --text-dark: #333;
+    --text-light: #666;
+    --background-light: #f9f9f9;
+    --white: #fff;
 }
 
 /* Header Styles */
@@ -27,14 +85,15 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
+    color: var(--white);
 }
 
 .header-content {
     padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(165, 160, 133, 0.7); /* Olive Buff with transparency */
     backdrop-filter: blur(5px);
     border-radius: 5px;
+    border: 2px solid rgba(165, 160, 133, 0.9);
 }
 
 header h1 {
@@ -43,23 +102,24 @@ header h1 {
 }
 
 .date {
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-weight: normal;
     font-size: 3.5rem;
-    font-family: 'Cormorant Garamond', serif;
 }
 
 /* Language Toggle Button */
 .language-toggle {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
-    background-color: rgba(255, 255, 255, 0.2);
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(165, 160, 133, 0.7); /* Olive Buff */
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(165, 160, 133, 0.9);
     padding: 0.5rem 1rem;
     border-radius: 25px;
     cursor: pointer;
     font-size: 0.9rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
@@ -68,8 +128,8 @@ header h1 {
 }
 
 .language-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(165, 160, 133, 0.4);
+    border-color: rgba(165, 160, 133, 0.8);
     transform: translateY(-2px);
 }
 
@@ -79,7 +139,7 @@ header h1 {
 
 /* Navigation Styles */
 nav {
-    background-color: #fff;
+    background-color: var(--white);
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -96,7 +156,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-dark);
     font-size: 1rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -112,14 +172,14 @@ nav a:after {
     display: block;
     margin-top: 5px;
     right: 0;
-    background: #333;
+    background: var(--carmine-red);
     transition: width 0.2s ease;
 }
 
 nav a:hover:after {
     width: 100%;
     left: 0;
-    background: #333;
+    background: var(--carmine-red);
 }
 
 nav a.active:after {
@@ -146,6 +206,7 @@ section {
 .welcome h2 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
+    color: var(--carmine-red);
 }
 
 .welcome p {
@@ -157,7 +218,7 @@ section {
 .button {
     display: inline-block;
     padding: 0.8rem 2rem;
-    background-color: #a88f5e;
+    background-color: var(--chromium-green);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -167,21 +228,23 @@ section {
 }
 
 .button:hover {
-    background-color: #8e784c;
+    background-color: #5a7a42; /* Darker shade of Chromium Green */
 }
 
 /* Countdown Styles */
 .countdown {
     text-align: center;
     padding: 2rem;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--olive-buff); /* Added Olive Buff accent */
 }
 
 .countdown h3 {
     margin-bottom: 1.5rem;
     font-size: 2.8rem;
+    color: var(--carmine-red);
 }
 
 #countdown-timer {
@@ -197,9 +260,11 @@ section {
 }
 
 .countdown-item span:first-child {
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-weight: normal;
     font-size: 3.5rem;
     font-weight: 300;
-    color: #a88f5e;
+    color: var(--olive-buff);
 }
 
 .countdown-label {
@@ -207,19 +272,21 @@ section {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 0.5rem;
+    color: var(--text-light);
 }
 
 /* Details Page Styles */
 .details-section {
     margin-bottom: 3rem;
     padding: 2rem;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--olive-buff); /* Added Olive Buff accent */
 }
 
 .details-section h3 {
-    color: #a88f5e;
+    color: var(--carmine-red);
     margin-bottom: 1rem;
     font-size: 2.8rem;
 }
@@ -234,6 +301,7 @@ section {
 .details-image {
     border-radius: 8px;
     overflow: hidden;
+    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
 }
 
 .details-image img {
@@ -245,6 +313,7 @@ section {
 .details-info h4 {
     margin-bottom: 0.5rem;
     font-size: 1.9rem;
+    color: var(--olive-buff); /* Olive Buff for headings */
 }
 
 .details-info p {
@@ -257,6 +326,7 @@ section {
     margin-top: 1.5rem;
     border-radius: 8px;
     overflow: hidden;
+    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
 }
 
 .map-container iframe {
@@ -270,10 +340,11 @@ section {
     max-width: 600px;
     margin: 0 auto;
     padding: 0;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
 }
 
 /* Google Form container styling */
@@ -300,10 +371,10 @@ section {
 }
 
 .confirmation-content h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #a88f5e;
+    color: var(--carmine-red);
 }
 
 .confirmation-content p {
@@ -315,8 +386,8 @@ section {
 footer {
     text-align: center;
     padding: 2rem 0;
-    background-color: #fff;
-    border-top: 1px solid #eee;
+    background-color: var(--white);
+    border-top: 3px solid var(--olive-buff);
 }
 
 /* Media Queries for Responsiveness */
@@ -416,9 +487,9 @@ footer {
 .pdf-section {
     margin-top: 2rem;
     padding: 1.5rem;
-    background-color: #f8f8f8;
+    background-color: rgba(165, 160, 133, 0.2); /* Light Olive Buff background */
     border-radius: 8px;
-    border-left: 4px solid #a88f5e;
+    border: 3px solid var(--olive-buff); /* Chromium Green accent */
 }
 
 .pdf-download {
@@ -436,21 +507,23 @@ footer {
 
 .pdf-icon {
     font-size: 2rem;
+    color: var(--carmine-red)
 }
 
 .pdf-details strong {
     display: block;
     margin-bottom: 0.25rem;
+    color: var(--chromium-green); /* Chromium Green for headings */
 }
 
 .pdf-details p {
     margin: 0;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-light);
 }
 
 .pdf-button {
-    background-color: #a88f5e;
+    background-color: var(--chromium-green);
     color: white;
     padding: 0.8rem 1.5rem;
     text-decoration: none;
@@ -460,7 +533,7 @@ footer {
 }
 
 .pdf-button:hover {
-    background-color: #8e784c;
+    background-color: #5a7a42; /* Darker shade of Chromium Green */
 }
 
 @media (max-width: 768px) {
@@ -481,33 +554,34 @@ footer {
     gap: 1rem;
     margin-bottom: 1rem;
     padding: 1rem;
-    background-color: #f9f9f9;
+    background-color: rgba(165, 160, 133, 0.2); /* Light Olive Buff background */
     border-radius: 6px;
-    border-left: 3px solid #a88f5e;
+    border: 3px solid var(--olive-buff); /* Changed to Carmine Red */
 }
 
 .parking-icon {
     font-size: 1.5rem;
     min-width: 30px;
+    color: var(--chromium-green)
 }
 
 .parking-details strong {
     display: block;
     margin-bottom: 0.25rem;
-    color: #333;
+    color: var(--text-dark); /* Dark text for headings */
 }
 
 .parking-details p {
     margin: 0;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-light);
 }
 
 .parking-link {
     display: inline-block;
     margin-top: 0.5rem;
     padding: 0.4rem 0.8rem;
-    background-color: #a88f5e;
+    background-color: var(--chromium-green); 
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -516,15 +590,15 @@ footer {
 }
 
 .parking-link:hover {
-    background-color: #8e784c;
+    background-color: #5a7a42; /* Darker shade of Chromium Green */
 }
 
 .parking-note {
     margin-top: 2rem;
     padding: 1rem;
-    background-color: #f0f8ff;
+    background-color: rgba(107, 142, 78, 0.2); /* Light Chromium Green background */
     border-radius: 6px;
-    border-left: 4px solid #4a90e2;
+    border-left: 3px solid var(--olive-buff);
 }
 
 .parking-note p {
