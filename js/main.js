@@ -64,7 +64,7 @@ const translations = {
         
         registry_title: "Lista de Regalos",
         gifts_title: "Regalos de Boda",
-        gifts_description: "Tu presencia en nuestra boda es el regalo más grande de todos. Sin embargo, si deseas honrarnos con un regalo, nos hemos registrado en los siguientes lugares:",
+        gifts_description: "Que vengas a celebrar con nosotros es el regalo más grande de todos. Sin embargo, si deseas honrarnos con un regalo, no hemos pensado en nada en particular. Afortunadamente tenemos de todo. Lo que sí nos gusta mucho es viajar y en unos días estaremos de luna de miel...",
         gifts_honeymoon: "También hemos incluido una opción para un fondo de luna de miel si prefieres contribuir a nuestra primera aventura como pareja casada.",
         
         // RSVP page
@@ -76,7 +76,7 @@ const translations = {
         return_home: "Volver al Inicio",
         
         // Footer
-        footer_text: "© 2025 Boda de Marianela y Daniel"
+        footer_text: "© 2025 Boda de Marianela & Daniel"
     },
     en: {
         // Navigation

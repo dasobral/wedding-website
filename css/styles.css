@@ -6,30 +6,41 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.4;
-    color: #333;
-    background-color: #f9f9f9;
-    font-size: 1.35rem;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #1F2937;
+    background-color: #FEF7ED;
+    font-size: 1.1rem;
+    font-weight: 300;
 }
 
-/* OPTION 1: Didot Bold (Classic serif contrast) */
+/* Typography Options - Enhanced with invitation-inspired refinements */
 
+/* OPTION 1: Cormorant Garamond (Matching invitation elegance) - ACTIVE */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+/* OPTION 2: Didot Bold (Classic serif contrast) - ALTERNATIVE */
+/*
 h1, h2, h3, h4, h5, h6 {
     font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
     font-weight: normal;
 }
+*/
 
-
-/* OPTION 2: Bree Bold (Modern friendly serif) 
+/* OPTION 3: Bree Bold (Modern friendly serif) - ALTERNATIVE */
+/*
 h1, h2, h3, h4, h5, h6 {
     font-family: "Bree Serif", Georgia, serif;
     font-weight: 400;
 }
 */
 
-/* OPTION 3: Poiret One (Art Deco geometric caps) */
-
+/* OPTION 4: Poiret One (Art Deco geometric caps) - ALTERNATIVE */
 /*
 h1, h2, h3, h4, h5, h6 {
     font-family: "Poiret One", "Futura", "Century Gothic", Arial, sans-serif;
@@ -38,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 */
 
-/* OPTION 4: Playfair Display (Elegant serif with contrast) */
+/* OPTION 5: Playfair Display (Elegant serif with contrast) - ALTERNATIVE */
 /*
 h1, h2, h3, h4, h5, h6 {
     font-family: "Playfair Display", Georgia, serif;
@@ -46,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 */
 
-/* OPTION 5: Baskerville (Classic readability) */
+/* OPTION 6: Baskerville (Classic readability) - ALTERNATIVE */
 /*
 h1, h2, h3, h4, h5, h6 {
     font-family: "Baskerville", "Georgia", serif;
@@ -54,8 +65,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 */
 
-
-/* OPTION 7: Henriette (Modern serif with contrast) */
+/* OPTION 7: Henriette (Modern serif with contrast) - ALTERNATIVE */
 /*
 h1, h2, h3, h4, h5, h6 {
     font-family: "Henriette", "Georgia", serif;
@@ -64,269 +74,403 @@ h1, h2, h3, h4, h5, h6 {
 }
 */
 
-/* Color Palette */
-
+/* Color Palette - Enhanced to match wedding invitation */
 :root {
-    --olive-buff: #a5a085;        /* 桑色白茶 - Olive Buff */
-    --carmine-red: #c73e1d;       /* 紅色 - Carmine Red */
-    --chromium-green: #6b8e4e;    /* 老緑 - Chromium Green */
-    --text-dark: #333;
-    --text-light: #666;
-    --background-light: #f9f9f9;
-    --white: #fff;
+    /* Primary Colors - Matching Wedding Invitation */
+    --carmine-red: #B91C1C;       /* Deep carmine red from invitation */
+    --sage-green: #7F8B5C;        /* Elegant sage green */
+    --cream-white: #FEF7ED;       /* Warm cream background */
+    --accent-gold: #D4AF37;       /* Subtle gold accent */
+    --pure-white: #FFFFFF;
+    
+    /* Text Colors */
+    --text-dark: #1F2937;         /* Rich dark text */
+    --text-light: #6B7280;        /* Sophisticated gray */
+    
+    /* Legacy Colors - Kept for backward compatibility */
+    --olive-buff: #7F8B5C;        /* Updated to match sage green */
+    --chromium-green: #7F8B5C;    /* Updated to match sage green */
+    --background-light: #FEF7ED;  /* Updated to cream white */
+    --white: #FFFFFF;
+    
+    /* Effects */
+    --soft-shadow: rgba(185, 28, 28, 0.1);
 }
 
-/* Header Styles */
+/* Header Styles - Enhanced elegance matching invitation */
 header {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://cdn0.bodas.net/vendor/1942/original/1280/jpg/imagen1_1_1942-174143561569608.webp') no-repeat center center;
+    background: linear-gradient(rgba(185, 28, 28, 0.4), rgba(127, 139, 92, 0.3)), url('https://cdn0.bodas.net/vendor/1942/original/1280/jpg/imagen1_1_1942-174143561569608.webp') no-repeat center center;
     background-size: cover;
-    height: 50vh;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--white);
+    color: var(--pure-white);
+    position: relative;
 }
 
 .header-content {
-    padding: 2rem;
-    background-color: rgba(165, 160, 133, 0.7); /* Olive Buff with transparency */
-    backdrop-filter: blur(5px);
-    border-radius: 5px;
-    border: 2px solid rgba(165, 160, 133, 0.9);
+    padding: 3rem 2.5rem;
+    background-color: rgba(254, 247, 237, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 3px solid var(--carmine-red);
+    box-shadow: 0 8px 32px rgba(185, 28, 28, 0.2);
+    color: var(--carmine-red);
+    max-width: 600px;
 }
 
 header h1 {
-    font-size: 5.5rem;
+    font-size: 4.5rem;
     margin-bottom: 0.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .date {
-    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
-    font-weight: normal;
-    font-size: 3.5rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: var(--sage-green);
+    font-style: italic;
 }
 
-/* Language Toggle Button */
+/* Language Toggle Button - Refined elegance */
 .language-toggle {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: rgba(165, 160, 133, 0.7); /* Olive Buff */
-    color: white;
-    border: 2px solid rgba(165, 160, 133, 0.9);
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: rgba(254, 247, 237, 0.95);
+    color: var(--carmine-red);
+    border: 2px solid var(--carmine-red);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-    min-width: 50px;
+    backdrop-filter: blur(8px);
+    min-width: 60px;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.15);
 }
 
 .language-toggle:hover {
-    background-color: rgba(165, 160, 133, 0.4);
-    border-color: rgba(165, 160, 133, 0.8);
+    background-color: var(--carmine-red);
+    color: var(--cream-white);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.25);
 }
 
 .language-toggle:active {
     transform: translateY(0);
 }
 
-/* Navigation Styles */
+/* Navigation Styles - Enhanced sophistication */
 nav {
-    background-color: var(--white);
-    padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--pure-white);
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.08);
+    border-bottom: 1px solid rgba(185, 28, 28, 0.1);
+}
+
+nav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--carmine-red), var(--accent-gold), var(--sage-green));
 }
 
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
+    gap: 3rem;
 }
 
 nav li {
-    margin: 0 1.5rem;
+    margin: 0; /* Reset for gap-based spacing */
 }
 
 nav a {
     text-decoration: none;
     color: var(--text-dark);
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
 }
 
 nav a:after {
     content: '';
     position: absolute;
     width: 0;
-    height: 1px;
+    height: 2px;
     display: block;
-    margin-top: 5px;
+    margin-top: 8px;
     right: 0;
-    background: var(--carmine-red);
-    transition: width 0.2s ease;
+    background: linear-gradient(90deg, var(--carmine-red), var(--sage-green));
+    transition: width 0.3s ease;
 }
 
-nav a:hover:after {
-    width: 100%;
-    left: 0;
-    background: var(--carmine-red);
+nav a:hover {
+    color: var(--carmine-red);
 }
 
+nav a:hover:after,
 nav a.active:after {
     width: 100%;
     left: 0;
 }
 
-/* Main Content Styles */
+/* Main Content Styles - Refined spacing */
 main {
-    max-width: 1500px;
-    margin: 2rem auto;
+    max-width: 1200px;
+    margin: 3rem auto;
     padding: 0 2rem;
 }
 
 section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .welcome {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
+    background-color: var(--pure-white);
+    box-shadow: 0 8px 32px var(--soft-shadow);
+    /* Border for subtle elegance */
+    border: 3px solid rgba(185, 28, 28, 0.2);
+    border-radius: 16px;
+    position: relative;
+}
+
+.welcome::before,
+.welcome::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent-gold);
+}
+.welcome::before {
+    top: 15px;
+    left: 15px;
+    border-right: none;
+    border-bottom: none;
+}
+.welcome::after {
+    bottom: 15px;
+    right: 15px;
+    border-left: none;
+    border-top: none;
 }
 
 .welcome h2 {
     font-size: 3.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--carmine-red);
+    font-weight: 500;
 }
 
 .welcome p {
     max-width: 700px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem;
     line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-light);
 }
 
 .button {
     display: inline-block;
-    padding: 0.8rem 2rem;
-    background-color: var(--chromium-green);
-    color: white;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(135deg, var(--carmine-red), #A01818);
+    color: var(--pure-white);
     text-decoration: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    transition: background-color 0.3s;
+    border-radius: 50px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.4), 0 2px 8px rgba(185, 28, 28, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.button:hover::before {
+    left: 100%;
 }
 
 .button:hover {
-    background-color: #5a7a42; /* Darker shade of Chromium Green */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(185, 28, 28, 0.5), 0 4px 16px rgba(185, 28, 28, 0.3);
+    background: linear-gradient(135deg, #A01818, var(--carmine-red), #B91C1C);
 }
 
-/* Countdown Styles */
+/* Countdown Styles - Enhanced elegance */
 .countdown {
     text-align: center;
-    padding: 2rem;
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 3px solid var(--olive-buff); /* Added Olive Buff accent */
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--pure-white), var(--cream-white));
+    border-radius: 16px;
+    box-shadow: 0 16px 48px var(--soft-shadow), 0 4px 16px rgba(185, 28, 28, 0.05);
+    border: 2px solid rgba(185, 28, 28, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--carmine-red), var(--sage-green), var(--accent-gold));
 }
 
 .countdown h3 {
-    margin-bottom: 1.5rem;
-    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
     color: var(--carmine-red);
+    font-weight: 500;
 }
 
 #countdown-timer {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .countdown-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1.5rem;
+    background-color: var(--pure-white);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(185, 28, 28, 0.1);
+    border: 1px solid rgba(185, 28, 28, 0.1);
+    min-width: 100px;
 }
 
 .countdown-item span:first-child {
-    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
-    font-weight: normal;
-    font-size: 3.5rem;
-    font-weight: 300;
-    color: var(--olive-buff);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--carmine-red);
+    line-height: 1;
 }
 
 .countdown-label {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 0.5rem;
-    color: var(--text-light);
+    margin-top: 0.8rem;
+    color: var(--sage-green);
+    font-weight: 500;
 }
 
-/* Details Page Styles */
+/* Details Page Styles - Sophisticated refinement */
 .details-section {
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 3px solid var(--olive-buff); /* Added Olive Buff accent */
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--pure-white), var(--cream-white));
+    border-radius: 16px;
+    box-shadow: 0 16px 48px var(--soft-shadow), 0 4px 16px rgba(185, 28, 28, 0.05);
+    border: 2px solid rgba(185, 28, 28, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.details-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--carmine-red), var(--sage-green), var(--accent-gold));
 }
 
 .details-section h3 {
     color: var(--carmine-red);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-size: 2.8rem;
+    font-weight: 500;
+    text-align: center;
 }
 
 .details-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
 }
 
 .details-image {
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
-    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
+    box-shadow: 0 8px 24px rgba(185, 28, 28, 0.15);
+    border: 2px solid rgba(185, 28, 28, 0.1);
 }
 
 .details-image img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.details-image:hover img {
+    transform: scale(1.02);
 }
 
 .details-info h4 {
-    margin-bottom: 0.5rem;
-    font-size: 1.9rem;
-    color: var(--olive-buff); /* Olive Buff for headings */
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--sage-green);
+    font-weight: 500;
 }
 
 .details-info p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     line-height: 1.8;
+    color: var(--text-light);
+}
+
+.details-info strong {
+    color: var(--text-dark);
+    font-weight: 500;
 }
 
 .map-container {
-    height: 300px;
-    margin-top: 1.5rem;
-    border-radius: 8px;
+    height: 350px;
+    margin-top: 2rem;
+    border-radius: 12px;
     overflow: hidden;
-    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
+    box-shadow: 0 8px 24px rgba(185, 28, 28, 0.15);
+    border: 2px solid rgba(185, 28, 28, 0.1);
 }
 
 .map-container iframe {
@@ -335,24 +479,37 @@ section {
     border: none;
 }
 
-/* Form Styles (for RSVP page) */
+/* Form Styles - Enhanced elegance */
 .form-container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 0;
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, var(--pure-white), var(--cream-white));
+    border-radius: 16px;
+    box-shadow: 0 20px 60px var(--soft-shadow), 0 8px 24px rgba(185, 28, 28, 0.08);
     overflow: hidden;
-    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
+    border: 2px solid rgba(185, 28, 28, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Google Form container styling */
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--carmine-red), var(--sage-green));
+}
+
+/* Google Form container styling - Enhanced */
 .google-form-container {
     width: 100%;
     height: 1020px;
     overflow: hidden;
     position: relative;
+    background-color: var(--pure-white);
 }
 
 .google-form-container iframe {
@@ -364,75 +521,273 @@ section {
     border: none;
 }
 
-/* Custom confirmation styling */
+/* Custom confirmation styling - Enhanced */
 .confirmation-content {
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 4rem 3rem;
 }
 
 .confirmation-content h3 {
-    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     color: var(--carmine-red);
+    font-weight: 500;
 }
 
 .confirmation-content p {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Footer Styles - Refined elegance */
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, var(--sage-green), #6B7757);
+    color: var(--cream-white);
+    border-top: 1px solid var(--carmine-red);
+    margin-top: 4rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--carmine-red), var(--sage-green), var(--accent-gold));
+}
+
+footer p {
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* PDF styles - Enhanced sophistication */
+.pdf-section {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(254, 247, 237, 0.8), rgba(127, 139, 92, 0.1));
+    border-radius: 12px;
+    border: 2px solid rgba(185, 28, 28, 0.15);
+    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.1);
+}
+
+.pdf-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.pdf-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.pdf-icon {
+    font-size: 2.5rem;
+    color: var(--carmine-red);
+}
+
+.pdf-details strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--sage-green);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.pdf-details p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.pdf-button {
+    background: linear-gradient(135deg, var(--sage-green), #6B7757);
+    color: var(--pure-white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(127, 139, 92, 0.3);
+}
+
+.pdf-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(127, 139, 92, 0.4);
+    background: linear-gradient(135deg, #6B7757, var(--sage-green));
+}
+
+/* Parking List - Enhanced elegance */
+.parking-list {
+    margin: 2rem 0;
+}
+
+.parking-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
     margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(254, 247, 237, 0.9), rgba(127, 139, 92, 0.05));
+    border-radius: 12px;
+    border: 2px solid rgba(185, 28, 28, 0.1);
+    box-shadow: 0 4px 16px rgba(185, 28, 28, 0.08);
+    transition: all 0.3s ease;
+}
+
+.parking-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(185, 28, 28, 0.12);
+}
+
+.parking-icon {
+    font-size: 2rem;
+    min-width: 40px;
+    color: var(--sage-green);
+}
+
+.parking-details strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.parking-details p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
     line-height: 1.6;
 }
 
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 2rem 0;
-    background-color: var(--white);
-    border-top: 3px solid var(--olive-buff);
+.parking-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, var(--sage-green), #6B7757);
+    color: var(--pure-white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(127, 139, 92, 0.25);
 }
 
-/* Media Queries for Responsiveness */
+.parking-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(127, 139, 92, 0.35);
+    background: linear-gradient(135deg, #6B7757, var(--sage-green));
+}
+
+.parking-note {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(127, 139, 92, 0.1));
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-gold);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.1);
+}
+
+.parking-note p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+.parking-note strong {
+    color: var(--accent-gold);
+}
+
+/* Media Queries for Responsiveness - Enhanced */
 @media (max-width: 768px) {
+    header {
+        height: 60vh;
+    }
+    
     header h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     
     .date {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
+    }
+    
+    .header-content {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
     }
     
     /* Language toggle adjustments for tablets */
     .language-toggle {
-        top: 0.5rem;
-        right: 0.5rem;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
     }
     
     nav ul {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
     }
     
     nav li {
-        margin: 0.5rem 0;
+        margin: 0;
+    }
+    
+    .welcome h2 {
+        font-size: 2.5rem;
     }
     
     #countdown-timer {
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.5rem;
+    }
+    
+    .countdown-item {
+        min-width: 80px;
+        padding: 1rem;
     }
     
     .countdown-item span:first-child {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     
     /* Details page adjustments */
     .details-card {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .details-image {
         order: -1;
+    }
+    
+    .details-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .details-section h3 {
+        font-size: 2.2rem;
     }
     
     /* Google Form container adjustments */
@@ -444,32 +799,85 @@ footer {
         height: 1800px;
         top: -180px;
     }
+    
+    .pdf-download,
+    .parking-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .parking-icon {
+        min-width: auto;
+    }
 }
 
 @media (max-width: 480px) {
     header {
-        height: 50vh;
+        height: 55vh;
     }
     
     .header-content {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
+        margin: 0 0.5rem;
     }
     
     header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+    
+    .date {
+        font-size: 1.5rem;
     }
     
     .welcome h2 {
         font-size: 2rem;
     }
     
+    .welcome {
+        padding: 2rem 1rem;
+    }
+    
     /* Language toggle adjustments for mobile */
     .language-toggle {
         top: 0.5rem;
         right: 0.5rem;
-        padding: 0.3rem 0.6rem;
-        font-size: 0.75rem;
-        min-width: 40px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        min-width: 50px;
+    }
+    
+    .countdown {
+        padding: 2rem 1rem;
+    }
+    
+    .countdown h3 {
+        font-size: 2rem;
+    }
+    
+    #countdown-timer {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 0.8rem;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 2rem;
+    }
+    
+    .details-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .details-section h3 {
+        font-size: 2rem;
+    }
+    
+    .details-info h4 {
+        font-size: 1.5rem;
     }
     
     /* Google Form container adjustments for small screens */
@@ -481,145 +889,39 @@ footer {
         height: 2000px;
         top: -150px;
     }
-}
-
-/* PDF styles */
-.pdf-section {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background-color: rgba(165, 160, 133, 0.2); /* Light Olive Buff background */
-    border-radius: 8px;
-    border: 3px solid var(--olive-buff); /* Chromium Green accent */
-}
-
-.pdf-download {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-}
-
-.pdf-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.pdf-icon {
-    font-size: 2rem;
-    color: var(--carmine-red)
-}
-
-.pdf-details strong {
-    display: block;
-    margin-bottom: 0.25rem;
-    color: var(--chromium-green); /* Chromium Green for headings */
-}
-
-.pdf-details p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
-
-.pdf-button {
-    background-color: var(--chromium-green);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s;
-}
-
-.pdf-button:hover {
-    background-color: #5a7a42; /* Darker shade of Chromium Green */
-}
-
-@media (max-width: 768px) {
-    .pdf-download {
-        flex-direction: column;
-        text-align: center;
+    
+    .confirmation-content {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .confirmation-content h3 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 0 1rem;
+        margin: 2rem auto;
     }
 }
 
-/* Parking List */
-.parking-list {
-    margin: 1.5rem 0;
-}
-
-.parking-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background-color: rgba(165, 160, 133, 0.2); /* Light Olive Buff background */
-    border-radius: 6px;
-    border: 3px solid var(--olive-buff); /* Changed to Carmine Red */
-}
-
-.parking-icon {
+/* Decorative flourishes inspired by invitation */
+.details-section h3::before,
+.welcome h2::before {
+    content: '✦';
+    display: block;
+    text-align: center;
     font-size: 1.5rem;
-    min-width: 30px;
-    color: var(--chromium-green)
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
 }
 
-.parking-details strong {
+.details-section h3::after,
+.welcome h2::after {
+    content: '';
     display: block;
-    margin-bottom: 0.25rem;
-    color: var(--text-dark); /* Dark text for headings */
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    margin: 1rem auto 0;
 }
-
-.parking-details p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
-
-.parking-link {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    background-color: var(--chromium-green); 
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    transition: background-color 0.3s;
-}
-
-.parking-link:hover {
-    background-color: #5a7a42; /* Darker shade of Chromium Green */
-}
-
-.parking-note {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: rgba(107, 142, 78, 0.2); /* Light Chromium Green background */
-    border-radius: 6px;
-    border-left: 3px solid var(--olive-buff);
-}
-
-.parking-note p {
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .pdf-download {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .parking-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
-    }
-    
-    .parking-icon {
-        min-width: auto;
-    }
-}
-

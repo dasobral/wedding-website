@@ -1,0 +1,625 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+    color: #333;
+    background-color: #f9f9f9;
+    font-size: 1.35rem;
+}
+
+/* OPTION 1: Didot Bold (Classic serif contrast) */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-weight: normal;
+}
+
+
+/* OPTION 2: Bree Bold (Modern friendly serif) 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bree Serif", Georgia, serif;
+    font-weight: 400;
+}
+*/
+
+/* OPTION 3: Poiret One (Art Deco geometric caps) */
+
+/*
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Poiret One", "Futura", "Century Gothic", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase; 
+}
+*/
+
+/* OPTION 4: Playfair Display (Elegant serif with contrast) */
+/*
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700; 
+}
+*/
+
+/* OPTION 5: Baskerville (Classic readability) */
+/*
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Baskerville", "Georgia", serif;
+    font-weight: 700; 
+}
+*/
+
+
+/* OPTION 7: Henriette (Modern serif with contrast) */
+/*
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Henriette", "Georgia", serif;
+    font-weight: 700; 
+    text-transform: uppercase; 
+}
+*/
+
+/* Color Palette */
+
+:root {
+    --olive-buff: #a5a085;        /* 桑色白茶 - Olive Buff */
+    --carmine-red: #c73e1d;       /* 紅色 - Carmine Red */
+    --chromium-green: #6b8e4e;    /* 老緑 - Chromium Green */
+    --text-dark: #333;
+    --text-light: #666;
+    --background-light: #f9f9f9;
+    --white: #fff;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://cdn0.bodas.net/vendor/1942/original/1280/jpg/imagen1_1_1942-174143561569608.webp') no-repeat center center;
+    background-size: cover;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.header-content {
+    padding: 2rem;
+    background-color: rgba(165, 160, 133, 0.7); /* Olive Buff with transparency */
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    border: 2px solid rgba(165, 160, 133, 0.9);
+}
+
+header h1 {
+    font-size: 5.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.date {
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-weight: normal;
+    font-size: 3.5rem;
+}
+
+/* Language Toggle Button */
+.language-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(165, 160, 133, 0.7); /* Olive Buff */
+    color: white;
+    border: 2px solid rgba(165, 160, 133, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    min-width: 50px;
+    text-align: center;
+}
+
+.language-toggle:hover {
+    background-color: rgba(165, 160, 133, 0.4);
+    border-color: rgba(165, 160, 133, 0.8);
+    transform: translateY(-2px);
+}
+
+.language-toggle:active {
+    transform: translateY(0);
+}
+
+/* Navigation Styles */
+nav {
+    background-color: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav li {
+    margin: 0 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--carmine-red);
+    transition: width 0.2s ease;
+}
+
+nav a:hover:after {
+    width: 100%;
+    left: 0;
+    background: var(--carmine-red);
+}
+
+nav a.active:after {
+    width: 100%;
+    left: 0;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 1500px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+.welcome {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.welcome h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--carmine-red);
+}
+
+.welcome p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--chromium-green);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #5a7a42; /* Darker shade of Chromium Green */
+}
+
+/* Countdown Styles */
+.countdown {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--olive-buff); /* Added Olive Buff accent */
+}
+
+.countdown h3 {
+    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    color: var(--carmine-red);
+}
+
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-item span:first-child {
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-weight: normal;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--olive-buff);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    color: var(--text-light);
+}
+
+/* Details Page Styles */
+.details-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--olive-buff); /* Added Olive Buff accent */
+}
+
+.details-section h3 {
+    color: var(--carmine-red);
+    margin-bottom: 1rem;
+    font-size: 2.8rem;
+}
+
+.details-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.details-image {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
+}
+
+.details-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.details-info h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.9rem;
+    color: var(--olive-buff); /* Olive Buff for headings */
+}
+
+.details-info p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.map-container {
+    height: 300px;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Form Styles (for RSVP page) */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 3px solid var(--olive-buff); /* Added Olive Buff border */
+}
+
+/* Google Form container styling */
+.google-form-container {
+    width: 100%;
+    height: 1020px;
+    overflow: hidden;
+    position: relative;
+}
+
+.google-form-container iframe {
+    width: 100%;
+    height: 1600px;
+    position: absolute;
+    top: -215px;
+    left: 0;
+    border: none;
+}
+
+/* Custom confirmation styling */
+.confirmation-content {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.confirmation-content h3 {
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--carmine-red);
+}
+
+.confirmation-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--white);
+    border-top: 3px solid var(--olive-buff);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .date {
+        font-size: 1.2rem;
+    }
+    
+    /* Language toggle adjustments for tablets */
+    .language-toggle {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0.5rem 0;
+    }
+    
+    #countdown-timer {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 2rem;
+    }
+    
+    /* Details page adjustments */
+    .details-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .details-image {
+        order: -1;
+    }
+    
+    /* Google Form container adjustments */
+    .google-form-container {
+        height: 1400px;
+    }
+    
+    .google-form-container iframe {
+        height: 1800px;
+        top: -180px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 50vh;
+    }
+    
+    .header-content {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .welcome h2 {
+        font-size: 2rem;
+    }
+    
+    /* Language toggle adjustments for mobile */
+    .language-toggle {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+        min-width: 40px;
+    }
+    
+    /* Google Form container adjustments for small screens */
+    .google-form-container {
+        height: 1600px;
+    }
+    
+    .google-form-container iframe {
+        height: 2000px;
+        top: -150px;
+    }
+}
+
+/* PDF styles */
+.pdf-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(165, 160, 133, 0.2); /* Light Olive Buff background */
+    border-radius: 8px;
+    border: 3px solid var(--olive-buff); /* Chromium Green accent */
+}
+
+.pdf-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pdf-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pdf-icon {
+    font-size: 2rem;
+    color: var(--carmine-red)
+}
+
+.pdf-details strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--chromium-green); /* Chromium Green for headings */
+}
+
+.pdf-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.pdf-button {
+    background-color: var(--chromium-green);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.pdf-button:hover {
+    background-color: #5a7a42; /* Darker shade of Chromium Green */
+}
+
+@media (max-width: 768px) {
+    .pdf-download {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Parking List */
+.parking-list {
+    margin: 1.5rem 0;
+}
+
+.parking-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: rgba(165, 160, 133, 0.2); /* Light Olive Buff background */
+    border-radius: 6px;
+    border: 3px solid var(--olive-buff); /* Changed to Carmine Red */
+}
+
+.parking-icon {
+    font-size: 1.5rem;
+    min-width: 30px;
+    color: var(--chromium-green)
+}
+
+.parking-details strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark); /* Dark text for headings */
+}
+
+.parking-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.parking-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background-color: var(--chromium-green); 
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.parking-link:hover {
+    background-color: #5a7a42; /* Darker shade of Chromium Green */
+}
+
+.parking-note {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(107, 142, 78, 0.2); /* Light Chromium Green background */
+    border-radius: 6px;
+    border-left: 3px solid var(--olive-buff);
+}
+
+.parking-note p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .pdf-download {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .parking-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .parking-icon {
+        min-width: auto;
+    }
+}
+
