@@ -8,7 +8,7 @@ const translations = {
         
         // Home page
         header_date: "11 de abril, 2026",
-        home_title: "¡Nos Casemos!",
+        home_title: "¡Nos Casamos!",
         home_description: "Será un enorme placer que vengas a celebrar nuestro día especia con nosotros. Hemos hecho esta web para que tengas a mano toda la información sobre el evento. Ojo, que puede haber cambios de aquí al día de la boda. Ah, y no olvides hacer click en el botón de aquí abajo.",
         rsvp_button: "Confirmar Asistencia",
         countdown_title: "It's the final countdown...",

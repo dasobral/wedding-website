@@ -1,3 +1,9 @@
+/* Script font for ampersand - Alex Brush (substitute for Parfumerie Script) */
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+/* Serif font for headings - Playfair Display */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
 /* Base Styles */
 * {
     margin: 0;
@@ -14,11 +20,18 @@ body {
     font-weight: 300;
 }
 
+.ampersand {
+    font-family: 'Alex Brush';
+    color: #B91C1C; /* Deep carmine red */
+    font-weight: 400;
+    font-style: italic;
+}
+
 /* Typography Options - Enhanced with invitation-inspired refinements */
 
-/* OPTION 1: Cormorant Garamond (Matching invitation elegance) - ACTIVE */
+/* OPTION 1: Playfair Display (Matching invitation elegance) - ACTIVE */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 500;
     letter-spacing: 0.5px;
     line-height: 1.2;
@@ -122,14 +135,23 @@ header {
 }
 
 header h1 {
-    font-size: 4.5rem;
+    font-size: 5.5rem;
     margin-bottom: 0.5rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    /* Hide the text content when using background image */
+    text-indent: -9999px;
+    overflow: hidden;
+    /* Set dimensions for the square image */
+    width: 400px;
+    height: 160px;
+    background-image: url('../images/marianela-daniel-logo.png');
+    background-size: 100%; /* Zoom in on the image */    
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto 0.5rem auto;
 }
 
 .date {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 400;
     font-size: 2.5rem;
     color: var(--sage-green);
@@ -724,7 +746,9 @@ footer p {
     }
     
     header h1 {
-        font-size: 3rem;
+        /* Adjust image size for tablets */
+        width: 400px;
+        height: 133px;
     }
     
     .date {
@@ -823,7 +847,9 @@ footer p {
     }
     
     header h1 {
-        font-size: 2.5rem;
+        /* Adjust image size for mobile */
+        width: 300px;
+        height: 100px;
     }
     
     .date {
