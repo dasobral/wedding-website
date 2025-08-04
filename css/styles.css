@@ -277,14 +277,14 @@ section {
 }
 
 .welcome::before,
+/*
 .welcome::after {
     content: '';
     position: absolute;
     width: 40px;
     height: 40px;
     border: 2px solid var(--accent-gold);
-}
-.welcome::before {
+}*/.welcome::before {
     top: 15px;
     left: 15px;
     border-right: none;
