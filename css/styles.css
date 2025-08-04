@@ -748,7 +748,7 @@ footer p {
     header h1 {
         /* Adjust image size for tablets */
         width: 400px;
-        height: 133px;
+        height: 160px;
     }
     
     .date {
@@ -848,8 +848,8 @@ footer p {
     
     header h1 {
         /* Adjust image size for mobile */
-        width: 300px;
-        height: 100px;
+        width: 400px;
+        height: 160px;
     }
     
     .date {
