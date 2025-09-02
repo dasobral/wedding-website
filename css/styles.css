@@ -143,7 +143,7 @@ header h1 {
     /* Set dimensions for the square image */
     width: 400px;
     height: 160px;
-    background-image: url('../images/marianela-daniel-logo.png');
+    background-image: url('../images/marianela-daniel-logo@4x.png');
     background-size: 100%; /* Zoom in on the image */    
     background-repeat: no-repeat;
     background-position: center;
