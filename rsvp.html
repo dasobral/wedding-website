@@ -141,7 +141,7 @@
                     a.href = formIframe.src.replace('?embedded=true', '');
                     a.target = '_blank';
                     a.rel = 'noopener noreferrer';
-                    a.textContent = 'Abrir formulario en pantalla completa';
+                    a.textContent = 'Abrir formulario';
                     // Basic styling (you can move to CSS if desired)
                     // reuse the main `.button` styles and add a small helper class for mobile sizing
                     a.className = 'button mobile-open-form-button';
@@ -277,7 +277,7 @@
                 helper.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
                 helper.style.zIndex = '1000';
                 helper.style.display = 'none';
-                helper.innerHTML = 'Ya envié el formulario';
+                helper.innerHTML = 'Formulario enviado';
                 helper.onclick = function() {
                     window.location.href = 'rsvp.html?success=true';
                 };
