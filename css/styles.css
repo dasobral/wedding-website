@@ -816,12 +816,12 @@ footer p {
     
     /* Google Form container adjustments */
     .google-form-container {
-        height: 1400px;
+        height: 1000px;
     }
     
     .google-form-container iframe {
-        height: 1500px;
-        top: -280px;
+        height: 1000px;
+        top: -300px;
     }
     
     .pdf-download,
