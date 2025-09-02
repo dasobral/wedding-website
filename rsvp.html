@@ -142,17 +142,20 @@
                     a.target = '_blank';
                     a.rel = 'noopener noreferrer';
                     a.textContent = 'Abrir formulario en pantalla completa';
-                    a.style.display = 'inline-block';
-                    a.style.margin = '0.75rem auto';
-                    a.style.padding = '0.6rem 1rem';
-                    a.style.background = '#A01818';
-                    a.style.color = '#fff';
-                    a.style.borderRadius = '8px';
-                    a.style.textDecoration = 'none';
-                    a.style.fontWeight = '600';
-                    a.style.textAlign = 'center';
-                    a.style.maxWidth = '300px';
-                    container.insertBefore(a, container.firstChild);
+                    // Basic styling (you can move to CSS if desired)
+                    // reuse the main `.button` styles and add a small helper class for mobile sizing
+                    a.className = 'button mobile-open-form-button';
+
+                    // Insert the link *after* the form container so it's visible when we hide the iframe viewport
+                    if (container.parentNode) {
+                        container.parentNode.insertBefore(a, container.nextSibling);
+                    } else {
+                        container.insertBefore(a, container.firstChild);
+                    }
+
+                    // Hide only the iframe viewport on mobile so the button remains visible
+                    const viewportEl = document.getElementById('google-form-viewport');
+                    if (viewportEl) viewportEl.style.display = 'none';
                 })();
 
                 /* --- New: shift embedded form vertically so we hide the Google Forms header block --- */

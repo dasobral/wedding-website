@@ -872,8 +872,20 @@ footer p {
     
     header h1 {
         /* Adjust image size for mobile */
-    width: 420px;
-    height: 180px;
+        /* Make the header responsive on small screens */
+        width: 80%;
+        max-width: 420px;
+        height: auto;
+        aspect-ratio: 40 / 16; /* approximate ratio to keep visual balance */
+        background-size: contain; /* ensure the logo fits within the box */
+    }
+
+    /* Mobile button uses the main .button style; this class only tweaks sizing for mobile */
+    .mobile-open-form-button {
+        display: inline-block;
+        margin: 1rem auto;
+        max-width: 320px;
+        width: calc(100% - 4rem);
     }
     
     .date {
