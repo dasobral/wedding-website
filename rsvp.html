@@ -45,16 +45,18 @@
         
         <!-- Google Form container -->
         <section id="google-form-container" class="form-container">
-            <div class="google-form-container">
-                <iframe id="google-form" 
+            <!-- Viewport: hides the top header block of the embedded Google Form -->
+            <div class="google-form-viewport" id="google-form-viewport">
+                <div class="google-form-container">
+                    <iframe id="google-form" class="embedded-google-form"
                         src="https://docs.google.com/forms/d/e/1FAIpQLSeelG8fN-NsqpAbFkOsk-njF7YsDxEsltkH589aCJOKVrMkYA/viewform?embedded=true" 
                         width="100%" 
-                        height="1500" 
                         frameborder="0" 
                         marginheight="0" 
                         marginwidth="0">
-                    Cargando...
-                </iframe>
+                        Cargando...
+                    </iframe>
+                </div>
             </div>
         </section>
     </main>
@@ -82,6 +84,116 @@
                 
                 // Get the iframe element
                 const formIframe = document.getElementById('google-form');
+
+                /* Configuración que puedes tunear:
+                   - HIDE_TOP_DESKTOP / HIDE_TOP_MOBILE: cuantos pixeles del header del formulario ocultar
+                   - IFRAME_HEIGHT_DESKTOP / IFRAME_HEIGHT_MOBILE: altura total del iframe para evitar recortes
+                   - VIEWPORT_PAD: espacio extra debajo del formulario visible (si necesitas que el botón quede más centrado)
+                */
+                const HIDE_TOP_DESKTOP = 260; // px — aumenta para ocultar más del encabezado
+                const HIDE_TOP_MOBILE = 320;  // px — móvil suele necesitar más
+                const IFRAME_HEIGHT_DESKTOP = 1600; // px — altura total del iframe en desktop
+                const IFRAME_HEIGHT_MOBILE = 2200;  // px — altura total del iframe en móvil
+                // Bottom gap: espacio que dejamos libre debajo del formulario dentro del viewport
+                const BOTTOM_GAP_DESKTOP = 172; // px — reduce para mostrar más fondo
+                const BOTTOM_GAP_MOBILE = 160;  // px — móvil puede necesitar más espacio
+
+                // Responsive iframe height adjustment
+                function adjustFormIframeHeight() {
+                    try {
+                        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+                        if (isDesktop) {
+                            formIframe.style.height = IFRAME_HEIGHT_DESKTOP + 'px';
+                            formIframe.style.minHeight = Math.min(900, IFRAME_HEIGHT_DESKTOP) + 'px';
+                        } else {
+                            formIframe.style.height = IFRAME_HEIGHT_MOBILE + 'px';
+                            formIframe.style.minHeight = Math.min(1200, IFRAME_HEIGHT_MOBILE) + 'px';
+                        }
+                    } catch (e) {
+                        console.log('Error adjusting iframe height:', e);
+                    }
+                }
+
+                // Debounce helper
+                let resizeTimeout = null;
+                function onResizeDebounced() {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(adjustFormIframeHeight, 150);
+                }
+
+                // Initial adjustment
+                adjustFormIframeHeight();
+
+                // Adjust on resize and orientation change
+                window.addEventListener('resize', onResizeDebounced);
+                window.addEventListener('orientationchange', onResizeDebounced);
+
+                // On very small screens, also show a small fallback link to open the form full-screen in a new tab
+                (function addMobileFallbackLink() {
+                    const isSmall = window.matchMedia('(max-width: 480px)').matches;
+                    if (!isSmall) return;
+                    const container = document.getElementById('google-form-container');
+                    if (!container) return;
+                    const linkId = 'open-google-form-link';
+                    if (document.getElementById(linkId)) return;
+                    const a = document.createElement('a');
+                    a.id = linkId;
+                    a.href = formIframe.src.replace('?embedded=true', '');
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    a.textContent = 'Abrir formulario en pantalla completa';
+                    a.style.display = 'inline-block';
+                    a.style.margin = '0.75rem auto';
+                    a.style.padding = '0.6rem 1rem';
+                    a.style.background = '#A01818';
+                    a.style.color = '#fff';
+                    a.style.borderRadius = '8px';
+                    a.style.textDecoration = 'none';
+                    a.style.fontWeight = '600';
+                    a.style.textAlign = 'center';
+                    a.style.maxWidth = '300px';
+                    container.insertBefore(a, container.firstChild);
+                })();
+
+                /* --- New: shift embedded form vertically so we hide the Google Forms header block --- */
+                const viewport = document.getElementById('google-form-viewport');
+                const innerContainer = document.querySelector('.google-form-container');
+
+                function applyFormViewportSizing() {
+                    try {
+                        const vh = window.innerHeight || document.documentElement.clientHeight;
+                        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+
+                        // Decide cuanto ocultar del top del formulario
+                        const hideTop = isDesktop ? HIDE_TOP_DESKTOP : HIDE_TOP_MOBILE;
+
+                        // Calcula la altura visible del viewport a partir de la altura total del iframe
+                        const iframeHeight = isDesktop ? IFRAME_HEIGHT_DESKTOP : IFRAME_HEIGHT_MOBILE;
+                        const bottomGap = isDesktop ? BOTTOM_GAP_DESKTOP : BOTTOM_GAP_MOBILE;
+                        // viewportHeight = iframeHeight - hideTop - bottomGap
+                        let viewportHeight = iframeHeight - hideTop - bottomGap;
+                        if (viewportHeight < 400) viewportHeight = Math.max(400, Math.round(vh - 120));
+                        viewport.style.height = viewportHeight + 'px';
+
+                        // Aplica el desplazamiento vertical para ocultar la cabecera del formulario
+                        innerContainer.style.transform = 'translateY(-' + hideTop + 'px)';
+
+                        // Asegura altura del iframe
+                        adjustFormIframeHeight();
+                    } catch (e) {
+                        console.log('Error applying form viewport sizing', e);
+                    }
+                }
+
+                // Apply when iframe loads (in case visual elements shift)
+                formIframe.addEventListener('load', function() {
+                    setTimeout(applyFormViewportSizing, 250);
+                });
+
+                // Apply immediately and on resize/orientation
+                applyFormViewportSizing();
+                window.addEventListener('resize', onResizeDebounced);
+                window.addEventListener('orientationchange', onResizeDebounced);
                 
                 // Method 1: Listen for iframe load events
                 formIframe.addEventListener('load', function() {
