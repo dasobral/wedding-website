@@ -43,9 +43,17 @@
             </div>
         </section>
         
-        <!-- Google Form container -->
+        <!-- Mobile RSVP Container (shown on mobile) -->
+        <section id="mobile-rsvp-container" class="mobile-rsvp-container">
+            <h3 data-translate="rsvp_title">Confirma tu Asistencia</h3>
+            <p data-translate="mobile_form_description">Para una mejor experiencia en móvil, el formulario se abrirá en una nueva ventana. Una vez completado, regresarás automáticamente aquí.</p>
+            <button class="mobile-rsvp-button" onclick="openMobileForm()" data-translate="open_form_button">
+                Abrir Formulario
+            </button>
+        </section>
+
+        <!-- Desktop Google Form container (shown on desktop) -->
         <section id="google-form-container" class="form-container">
-            <!-- Viewport: hides the top header block of the embedded Google Form -->
             <div class="google-form-viewport" id="google-form-viewport">
                 <div class="google-form-container">
                     <iframe id="google-form" class="embedded-google-form"
@@ -68,227 +76,154 @@
     <script src="js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, checking for success parameter');
-            
-            // Check if URL contains success parameter
+            // Check if this is a success redirect
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('success') === 'true') {
-                console.log('Success parameter found, showing confirmation');
-                // Hide form and show confirmation
-                document.getElementById('google-form-container').style.display = 'none';
-                document.getElementById('custom-confirmation').style.display = 'block';
-                // Scroll to top for better user experience
-                window.scrollTo(0, 0);
+                showConfirmationMessage();
+                return;
+            }
+            
+            // Determine which interface to show based on screen size
+            if (window.matchMedia('(max-width: 480px)').matches) {
+                setupMobileRSVP();
             } else {
-                console.log('Form display mode');
-                
-                // Get the iframe element
-                const formIframe = document.getElementById('google-form');
-
-                /* Configuración que puedes tunear:
-                   - HIDE_TOP_DESKTOP / HIDE_TOP_MOBILE: cuantos pixeles del header del formulario ocultar
-                   - IFRAME_HEIGHT_DESKTOP / IFRAME_HEIGHT_MOBILE: altura total del iframe para evitar recortes
-                   - VIEWPORT_PAD: espacio extra debajo del formulario visible (si necesitas que el botón quede más centrado)
-                */
-                const HIDE_TOP_DESKTOP = 260; // px — aumenta para ocultar más del encabezado
-                const HIDE_TOP_MOBILE = 320;  // px — móvil suele necesitar más
-                const IFRAME_HEIGHT_DESKTOP = 1600; // px — altura total del iframe en desktop
-                const IFRAME_HEIGHT_MOBILE = 2200;  // px — altura total del iframe en móvil
-                // Bottom gap: espacio que dejamos libre debajo del formulario dentro del viewport
-                const BOTTOM_GAP_DESKTOP = 172; // px — reduce para mostrar más fondo
-                const BOTTOM_GAP_MOBILE = 160;  // px — móvil puede necesitar más espacio
-
-                // Responsive iframe height adjustment
-                function adjustFormIframeHeight() {
-                    try {
-                        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-                        if (isDesktop) {
-                            formIframe.style.height = IFRAME_HEIGHT_DESKTOP + 'px';
-                            formIframe.style.minHeight = Math.min(900, IFRAME_HEIGHT_DESKTOP) + 'px';
-                        } else {
-                            formIframe.style.height = IFRAME_HEIGHT_MOBILE + 'px';
-                            formIframe.style.minHeight = Math.min(1200, IFRAME_HEIGHT_MOBILE) + 'px';
-                        }
-                    } catch (e) {
-                        console.log('Error adjusting iframe height:', e);
-                    }
+                setupDesktopRSVP();
+            }
+            
+            // Handle screen size changes
+            window.addEventListener('resize', function() {
+                if (window.matchMedia('(max-width: 480px)').matches) {
+                    setupMobileRSVP();
+                } else {
+                    setupDesktopRSVP();
                 }
+            });
+        });
 
-                // Debounce helper
-                let resizeTimeout = null;
-                function onResizeDebounced() {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(adjustFormIframeHeight, 150);
-                }
+        function setupMobileRSVP() {
+            // Show mobile container, hide desktop form
+            const mobileContainer = document.getElementById('mobile-rsvp-container');
+            const desktopContainer = document.getElementById('google-form-container');
+            
+            if (mobileContainer) mobileContainer.style.display = 'block';
+            if (desktopContainer) desktopContainer.classList.add('mobile-hidden');
+        }
 
-                // Initial adjustment
-                adjustFormIframeHeight();
+        function setupDesktopRSVP() {
+            // Show desktop form, hide mobile container
+            const mobileContainer = document.getElementById('mobile-rsvp-container');
+            const desktopContainer = document.getElementById('google-form-container');
+            
+            if (mobileContainer) mobileContainer.style.display = 'none';
+            if (desktopContainer) {
+                desktopContainer.classList.remove('mobile-hidden');
+                desktopContainer.style.display = 'block';
+            }
+            
+            // Set up desktop iframe if needed
+            setupDesktopIframe();
+        }
 
-                // Adjust on resize and orientation change
-                window.addEventListener('resize', onResizeDebounced);
-                window.addEventListener('orientationchange', onResizeDebounced);
-
-                // On very small screens, also show a small fallback link to open the form full-screen in a new tab
-                (function addMobileFallbackLink() {
-                    const isSmall = window.matchMedia('(max-width: 480px)').matches;
-                    if (!isSmall) return;
-                    const container = document.getElementById('google-form-container');
-                    if (!container) return;
-                    const linkId = 'open-google-form-link';
-                    if (document.getElementById(linkId)) return;
-                    const a = document.createElement('a');
-                    a.id = linkId;
-                    a.href = formIframe.src.replace('?embedded=true', '');
-                    a.target = '_blank';
-                    a.rel = 'noopener noreferrer';
-                    a.textContent = 'Abrir formulario';
-                    // Basic styling (you can move to CSS if desired)
-                    // reuse the main `.button` styles and add a small helper class for mobile sizing
-                    a.className = 'button mobile-open-form-button';
-
-                    // Insert the link *after* the form container so it's visible when we hide the iframe viewport
-                    if (container.parentNode) {
-                        container.parentNode.insertBefore(a, container.nextSibling);
-                    } else {
-                        container.insertBefore(a, container.firstChild);
-                    }
-
-                    // Hide only the iframe viewport on mobile so the button remains visible
-                    const viewportEl = document.getElementById('google-form-viewport');
-                    if (viewportEl) viewportEl.style.display = 'none';
-                })();
-
-                /* --- New: shift embedded form vertically so we hide the Google Forms header block --- */
-                const viewport = document.getElementById('google-form-viewport');
-                const innerContainer = document.querySelector('.google-form-container');
-
-                function applyFormViewportSizing() {
+        function setupDesktopIframe() {
+            // Basic iframe setup for desktop - simplified from the original
+            const formIframe = document.getElementById('google-form');
+            if (!formIframe) return;
+            
+            // Set reasonable height for desktop
+            formIframe.style.height = '1200px';
+            formIframe.style.minHeight = '800px';
+            
+            // Listen for form submission on desktop (basic version)
+            formIframe.addEventListener('load', function() {
+                // Give it a moment for the form to potentially redirect
+                setTimeout(function() {
+                    // Check if we should show confirmation (basic detection)
                     try {
-                        const vh = window.innerHeight || document.documentElement.clientHeight;
-                        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-
-                        // Decide cuanto ocultar del top del formulario
-                        const hideTop = isDesktop ? HIDE_TOP_DESKTOP : HIDE_TOP_MOBILE;
-
-                        // Calcula la altura visible del viewport a partir de la altura total del iframe
-                        const iframeHeight = isDesktop ? IFRAME_HEIGHT_DESKTOP : IFRAME_HEIGHT_MOBILE;
-                        const bottomGap = isDesktop ? BOTTOM_GAP_DESKTOP : BOTTOM_GAP_MOBILE;
-                        // viewportHeight = iframeHeight - hideTop - bottomGap
-                        let viewportHeight = iframeHeight - hideTop - bottomGap;
-                        if (viewportHeight < 400) viewportHeight = Math.max(400, Math.round(vh - 120));
-                        viewport.style.height = viewportHeight + 'px';
-
-                        // Aplica el desplazamiento vertical para ocultar la cabecera del formulario
-                        innerContainer.style.transform = 'translateY(-' + hideTop + 'px)';
-
-                        // Asegura altura del iframe
-                        adjustFormIframeHeight();
-                    } catch (e) {
-                        console.log('Error applying form viewport sizing', e);
-                    }
-                }
-
-                // Apply when iframe loads (in case visual elements shift)
-                formIframe.addEventListener('load', function() {
-                    setTimeout(applyFormViewportSizing, 250);
-                });
-
-                // Apply immediately and on resize/orientation
-                applyFormViewportSizing();
-                window.addEventListener('resize', onResizeDebounced);
-                window.addEventListener('orientationchange', onResizeDebounced);
-                
-                // Method 1: Listen for iframe load events
-                formIframe.addEventListener('load', function() {
-                    console.log('Iframe loaded or changed');
-                    
-                    // Check if this is a load after submission
-                    setTimeout(function() {
-                        try {
-                            // Try to find confirmation text in the iframe
-                            if (formIframe.contentWindow.document.body.innerHTML.includes('Tu respuesta') || 
-                                formIframe.contentWindow.document.body.innerHTML.includes('Your response')) {
-                                console.log('Submission detected via iframe content');
-                                window.location.href = 'rsvp.html?success=true';
-                            }
-                        } catch(e) {
-                            console.log('Cannot access iframe content due to security restrictions:', e);
-                        }
-                    }, 1000);
-                });
-                
-                // Method 2: Use the standard message event listener
-                window.addEventListener('message', function(e) {
-                    console.log('Message received:', e.origin, typeof e.data, e.data);
-                    
-                    // Check if message is from Google Forms
-                    if (e.origin.includes('google.com')) {
-                        // Check for form submission indicators
-                        if (typeof e.data === 'string') {
-                            if (e.data.includes('formResponse') || 
-                                e.data.includes('submitted') || 
-                                e.data.includes('confirmation') || 
-                                e.data.includes('close')) {
-                                console.log('Form submission detected via message event');
-                                window.location.href = 'rsvp.html?success=true';
-                            }
-                        }
-                    }
-                });
-                
-                // Method 3: Set up a polling mechanism to check the iframe URL
-                let previousUrl = '';
-                const checkIframeUrl = setInterval(function() {
-                    try {
-                        const currentUrl = formIframe.contentWindow.location.href;
-                        console.log('Current iframe URL:', currentUrl);
-                        
-                        // If URL changed and contains submission indicators
-                        if (currentUrl !== previousUrl && 
-                           (currentUrl.includes('formResponse') || 
-                            currentUrl.includes('closedform'))) {
-                            console.log('Form submission detected via URL change');
-                            clearInterval(checkIframeUrl);
+                        const iframeDoc = formIframe.contentDocument || formIframe.contentWindow.document;
+                        if (iframeDoc.body.innerHTML.includes('Tu respuesta') || 
+                            iframeDoc.body.innerHTML.includes('Your response')) {
                             window.location.href = 'rsvp.html?success=true';
                         }
-                        
-                        previousUrl = currentUrl;
                     } catch(e) {
-                        console.log('Cannot access iframe URL due to security restrictions');
+                        // Cross-origin restrictions - this is normal
+                        console.log('Cannot access iframe content (normal security restriction)');
                     }
-                }, 1000);
-                
-                // Clear the interval after 5 minutes to prevent unnecessary resource usage
-                setTimeout(function() {
-                    clearInterval(checkIframeUrl);
-                    console.log('Stopped polling iframe URL');
-                }, 300000);
-                
-                // Method 4: Add manual button as fallback with translated text
-                const helper = document.createElement('div');
-                helper.style.position = 'fixed';
-                helper.style.bottom = '20px';
-                helper.style.right = '20px';
-                helper.style.backgroundColor = '#a88f5e';
-                helper.style.color = 'white';
-                helper.style.padding = '10px 15px';
-                helper.style.borderRadius = '5px';
-                helper.style.cursor = 'pointer';
-                helper.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
-                helper.style.zIndex = '1000';
-                helper.style.display = 'none';
-                helper.innerHTML = 'Formulario enviado';
-                helper.onclick = function() {
-                    window.location.href = 'rsvp.html?success=true';
-                };
-                document.body.appendChild(helper);
-                
-                // Show the helper button after 15 seconds
-                setTimeout(function() {
-                    helper.style.display = 'block';
-                }, 15000);
+                }, 2000);
+            });
+        }
+
+        function openMobileForm() {
+            // Store that we're expecting a form submission
+            localStorage.setItem('weddingFormSubmissionPending', 'true');
+            localStorage.setItem('weddingFormOpenTime', Date.now().toString());
+            
+            // Open form in new window
+            const formWindow = window.open(
+                'https://docs.google.com/forms/d/e/1FAIpQLSeelG8fN-NsqpAbFkOsk-njF7YsDxEsltkH589aCJOKVrMkYA/viewform',
+                'weddingRSVPForm',
+                'width=800,height=900,scrollbars=yes,resizable=yes'
+            );
+            
+            if (!formWindow) {
+                alert('Por favor permite ventanas emergentes para abrir el formulario de confirmación.');
+                return;
             }
-        });
+            
+            // Monitor the form window
+            monitorFormWindow(formWindow);
+        }
+
+        function monitorFormWindow(formWindow) {
+            const checkInterval = setInterval(() => {
+                try {
+                    if (formWindow.closed) {
+                        clearInterval(checkInterval);
+                        handleFormWindowClosed();
+                    }
+                } catch (e) {
+                    clearInterval(checkInterval);
+                }
+            }, 1000);
+            
+            // Stop checking after 10 minutes
+            setTimeout(() => {
+                clearInterval(checkInterval);
+            }, 600000);
+        }
+
+        function handleFormWindowClosed() {
+            const wasFormPending = localStorage.getItem('weddingFormSubmissionPending');
+            const openTime = localStorage.getItem('weddingFormOpenTime');
+            
+            if (wasFormPending === 'true') {
+                const timePassed = Date.now() - parseInt(openTime || '0');
+                
+                if (timePassed > 30000) { // 30 seconds minimum - likely submitted
+                    localStorage.removeItem('weddingFormSubmissionPending');
+                    localStorage.removeItem('weddingFormOpenTime');
+                    window.location.href = 'rsvp.html?success=true';
+                } else {
+                    // Closed too quickly - probably cancelled
+                    localStorage.removeItem('weddingFormSubmissionPending');
+                    localStorage.removeItem('weddingFormOpenTime');
+                    // Don't do anything - let user try again
+                }
+            }
+        }
+
+        function showConfirmationMessage() {
+            // Hide both form containers
+            const mobileContainer = document.getElementById('mobile-rsvp-container');
+            const desktopContainer = document.getElementById('google-form-container');
+            const confirmationContainer = document.getElementById('custom-confirmation');
+            
+            if (mobileContainer) mobileContainer.style.display = 'none';
+            if (desktopContainer) desktopContainer.style.display = 'none';
+            if (confirmationContainer) confirmationContainer.style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
     </script>
 </body>
 </html>

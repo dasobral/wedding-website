@@ -66,6 +66,8 @@ const translations = {
         // RSVP page
         rsvp_title: "Confirmación de Asistencia",
         rsvp_description: "Necesitamos saber con antelación si podrás acompañarnos en nuestro día especial. Te pedimos amablemente tu respuesta antes del final de enero de 2026.",
+        mobile_form_description: "Por favor, haz click en el botón de abajo para abrir el formulario de confirmación de asistencia.",
+        open_form_button: "Abrir Formulario",
         rsvp_thank_you: "¡Gracias!",
         rsvp_received: "Hemos recibido tus datos y confirmación de asistencia. ¡Nos vemos pronto!",
         rsvp_update: "Si necesitas modificar tu respuesta, por favor contáctanos directamente. En caso de cancelación, necesitamos saberlo antes de que termine marzo de 2026.",
@@ -140,6 +142,8 @@ const translations = {
         // RSVP page
         rsvp_title: "RSVP to Our Wedding",
         rsvp_description: "We need to know in advance if you'll be able to join us on our special day. We kindly request your response before the end of January 2026.",
+        mobile_form_description: "Please click the button below to open the RSVP form.",
+        open_form_button: "Open Form",
         rsvp_thank_you: "Thank You!",
         rsvp_received: "We've received your details and attendance confirmation. See you soon!",
         rsvp_update: "If you need to modify your response, please contact us directly. In case of cancellation, we need to know before the end of March 2026.",
