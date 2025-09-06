@@ -1,9 +1,7 @@
 /* Script font for ampersand - Alex Brush (substitute for Parfumerie Script) */
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
-
 /* Serif font for headings - Playfair Display */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 /* Base Styles */
 * {
     margin: 0;
@@ -20,72 +18,15 @@ body {
     font-weight: 300;
 }
 
-.ampersand {
-    font-family: 'Alex Brush';
-    color: #B91C1C; /* Deep carmine red */
-    font-weight: 400;
-    font-style: italic;
-}
-
 /* Typography Options - Enhanced with invitation-inspired refinements */
 
-/* OPTION 1: Playfair Display (Matching invitation elegance) - ACTIVE */
+/* Playfair Display (Matching invitation elegance) - ACTIVE */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 500;
     letter-spacing: 0.5px;
     line-height: 1.2;
 }
-
-/* OPTION 2: Didot Bold (Classic serif contrast) - ALTERNATIVE */
-/*
-h1, h2, h3, h4, h5, h6 {
-    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
-    font-weight: normal;
-}
-*/
-
-/* OPTION 3: Bree Bold (Modern friendly serif) - ALTERNATIVE */
-/*
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Bree Serif", Georgia, serif;
-    font-weight: 400;
-}
-*/
-
-/* OPTION 4: Poiret One (Art Deco geometric caps) - ALTERNATIVE */
-/*
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Poiret One", "Futura", "Century Gothic", Arial, sans-serif;
-    font-weight: 400;
-    text-transform: uppercase; 
-}
-*/
-
-/* OPTION 5: Playfair Display (Elegant serif with contrast) - ALTERNATIVE */
-/*
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 700; 
-}
-*/
-
-/* OPTION 6: Baskerville (Classic readability) - ALTERNATIVE */
-/*
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Baskerville", "Georgia", serif;
-    font-weight: 700; 
-}
-*/
-
-/* OPTION 7: Henriette (Modern serif with contrast) - ALTERNATIVE */
-/*
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Henriette", "Georgia", serif;
-    font-weight: 700; 
-    text-transform: uppercase; 
-}
-*/
 
 /* Color Palette - Enhanced to match wedding invitation */
 :root {
@@ -110,6 +51,43 @@ h1, h2, h3, h4, h5, h6 {
     --soft-shadow: rgba(185, 28, 28, 0.1);
 }
 
+/* Header Names and Rings Configuration */
+:root {
+    /* Header-specific variables for easy maintenance */
+    --header-font-family: 'Playfair Display', serif;
+    --header-font-weight: 500;
+    --header-letter-spacing: 1px;
+    --header-text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    
+    /* Ring design variables */
+    --ring-border-width: 4px;
+    --ring-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    --sparkle-color: var(--accent-gold);
+    --sparkle-size: 12px;
+    
+    /* Desktop sizes */
+    --names-font-size-desktop: 4.5rem;
+    --rings-container-width-desktop: 80px;
+    --rings-container-height-desktop: 60px;
+    --ring-size-desktop: 40px;
+
+    /* Tablet sizes */
+    --names-font-size-tablet: 3.5rem;
+    --rings-container-width-tablet: 60px;
+    --rings-container-height-tablet: 50px;
+    --ring-size-tablet: 30px;
+    --ring-border-width-tablet: 3px;
+    --sparkle-size-tablet: 12px;
+
+    /* Mobile sizes */
+    --names-font-size-mobile: 2.5rem;
+    --rings-container-width-mobile: 60px;
+    --rings-container-height-mobile: 40px;
+    --ring-size-mobile: 40px;
+    --ring-border-width-mobile: 3px;
+    --sparkle-size-mobile: 12px;
+}
+
 /* Header Styles - Enhanced elegance matching invitation */
 header {
     background: linear-gradient(rgba(185, 28, 28, 0.4), rgba(127, 139, 92, 0.3)), url('https://cdn0.bodas.net/vendor/1942/original/1280/jpg/imagen1_1_1942-174143561569608.webp') no-repeat center center;
@@ -131,23 +109,246 @@ header {
     border: 3px solid var(--carmine-red);
     box-shadow: 0 8px 32px rgba(185, 28, 28, 0.2);
     color: var(--carmine-red);
-    max-width: 600px;
+    max-width: 1200px;
 }
 
+/* =================================
+   HEADER STRUCTURE
+   ================================= */
+
 header h1 {
-    font-size: 5.5rem;
+    font-size: 0; /* Hide any fallback text */
     margin-bottom: 0.5rem;
-    /* Hide the text content when using background image */
-    text-indent: -9999px;
-    overflow: hidden;
-    /* Set dimensions for the square image */
-    width: 400px;
-    height: 160px;
-    background-image: url('../images/marianela-daniel-logo@8x.png');
-    background-size: 100%; /* Zoom in on the image */    
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0 auto 0.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* =================================
+   NAMES CONTAINER AND TYPOGRAPHY
+   ================================= */
+
+.names-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.bride-name, 
+.groom-name {
+    font-family: var(--header-font-family);
+    font-size: var(--names-font-size-desktop);
+    font-weight: var(--header-font-weight);
+    color: var(--carmine-red);
+    line-height: 1;
+    text-shadow: var(--header-text-shadow);
+    letter-spacing: var(--header-letter-spacing);
+    /* Smooth transitions for responsive changes */
+    transition: font-size 0.3s ease;
+}
+
+/* =================================
+   INTERLOCKED RINGS DESIGN
+   ================================= */
+
+.rings-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--rings-container-width-desktop);
+    height: var(--rings-container-height-desktop);
+    margin: 0 1rem;
+    /* Smooth transitions for responsive changes */
+    transition: all 0.3s ease;
+}
+
+.ring {
+    position: absolute;
+    width: var(--ring-size-desktop);
+    height: var(--ring-size-desktop);
+    border: var(--ring-border-width) solid;
+    border-radius: 50%;
+    box-shadow: var(--ring-shadow);
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+}
+
+/* Bride's ring (red) - positioned top-left */
+.ring-1 {
+    border-color: var(--carmine-red);
+    top: 5px;
+    left: 10px;
+    z-index: 2; /* On top for interlocked effect */
+}
+
+/* Groom's ring (sage green) - positioned bottom-right */
+.ring-2 {
+    border-color: var(--sage-green);
+    top: 15px;
+    right: 10px;
+    z-index: 1; /* Behind for interlocked effect */
+}
+
+/* =================================
+   SPARKLE ANIMATIONS
+   ================================= */
+
+.ring-1::before, 
+.ring-2::before {
+    content: '✦';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: var(--sparkle-size);
+    color: var(--sparkle-color);
+    animation: sparkle 2s ease-in-out infinite alternate;
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Offset sparkle animation for visual interest */
+.ring-2::before {
+    animation-delay: 1s;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+@keyframes sparkle {
+    0% { 
+        opacity: 0.5; 
+        transform: scale(0.8); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1.4); 
+    }
+}
+
+/* =================================
+   RESPONSIVE DESIGN - TABLET
+   ================================= */
+
+@media (max-width: 768px) {
+    .bride-name, 
+    .groom-name {
+        font-size: var(--names-font-size-tablet);
+    }
+    
+    .names-container {
+        gap: 1.5rem;
+    }
+    
+    .rings-divider {
+        width: var(--rings-container-width-tablet);
+        height: var(--rings-container-height-tablet);
+        margin: 0 0.5rem;
+    }
+    
+    .ring {
+        width: var(--ring-size-tablet);
+        height: var(--ring-size-tablet);
+        border-width: var(--ring-border-width-tablet);
+    }
+    
+    .ring-1 {
+        top: 5px;
+        left: 5px;
+    }
+    
+    .ring-2 {
+        top: 15px;
+        right: 5px;
+    }
+}
+
+/* =================================
+   RESPONSIVE DESIGN - MOBILE
+   ================================= */
+
+@media (max-width: 480px) {
+    .names-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .bride-name, 
+    .groom-name {
+        font-size: var(--names-font-size-mobile);
+        margin-top: 0.4rem;
+    }
+    
+    .rings-divider {
+        width: var(--rings-container-width-mobile);
+        height: var(--rings-container-height-mobile);
+        margin: 0.5rem 0;
+        transform: rotate(0deg); /* Vertical orientation for mobile */
+    }
+    
+    .ring {
+        width: var(--ring-size-mobile);
+        height: var(--ring-size-mobile);
+        border-width: var(--ring-border-width-mobile);
+    }
+    
+    .ring-1 {
+        top: 2px;
+        left: 2px;
+    }
+    
+    .ring-2 {
+        top: 15px;
+        right: 2px;
+    }
+    
+    .ring-1::before, 
+    .ring-2::before {
+        font-size: var(--sparkle-size-mobile);
+        top: -6px;
+        right: -6px;
+    }
+}
+
+/* =================================
+   ACCESSIBILITY AND FALLBACKS
+   ================================= */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .ring {
+        border-width: calc(var(--ring-border-width) + 1px);
+    }
+    
+    .bride-name, 
+    .groom-name {
+        text-shadow: none;
+        font-weight: 600;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .ring-1::before, 
+    .ring-2::before,
+    .bride-name, 
+    .groom-name,
+    .rings-divider,
+    .ring {
+        animation: none;
+        transition: none;
+    }
 }
 
 .date {
@@ -755,12 +956,6 @@ footer p {
         height: 60vh;
     }
     
-    header h1 {
-        /* Adjust image size for tablets */
-    width: 520px;
-    height: 200px;
-    }
-    
     .date {
         font-size: 1.8rem;
     }
@@ -855,18 +1050,8 @@ footer p {
     }
     
     .header-content {
-        padding: 1.5rem 1rem;
-        margin: 0 0.5rem;
-    }
-    
-    header h1 {
-        /* Adjust image size for mobile */
-        /* Make the header responsive on small screens */
-        width: 80%;
-        max-width: 420px;
-        height: auto;
-        aspect-ratio: 40 / 16; /* approximate ratio to keep visual balance */
-        background-size: contain; /* ensure the logo fits within the box */
+        padding: 1.5rem 1.5rem;
+        margin: 0 1rem;
     }
 
     /* Mobile button uses the main .button style; this class only tweaks sizing for mobile */
@@ -907,16 +1092,20 @@ footer p {
     }
     
     #countdown-timer {
-        gap: 1rem;
+        gap: 0.2rem;
     }
     
     .countdown-item {
-        min-width: 70px;
-        padding: 0.8rem;
+        min-width: 50px;
+        padding: 0.6rem;
     }
     
     .countdown-item span:first-child {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.75rem; /* Add this line - makes labels smaller */
     }
     
     .details-section {
