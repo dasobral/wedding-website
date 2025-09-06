@@ -31,6 +31,28 @@
         <section class="welcome">
             <h2 data-translate="rsvp_title">Confirma tu Asistencia a Nuestra Boda</h2>
             <p data-translate="rsvp_description">Por favor déjanos saber si podrás acompañarnos en nuestro día especial. Te pedimos amablemente tu respuesta antes del 11 de marzo de 2026.</p>
+            
+            <!-- Mobile button (hidden on desktop) -->
+            <div id="mobile-rsvp-section" style="display: none; margin-top: 2rem;">
+                <p data-translate="mobile_form_description" style="font-size: 1rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.6;">
+                    Completa el formulario y luego regresa aquí.
+                </p>
+                
+                <!-- First button: Open Form -->
+                <button class="mobile-rsvp-button" onclick="openSimpleForm()" data-translate="open_form_button">
+                    Abrir Formulario
+                </button>
+                
+                <!-- Separation between buttons -->
+                <div class="button-separator">
+                    <span data-translate="button_separator_text">↓ Después de completar el formulario ↓</span>
+                </div>
+                
+                <!-- Second button: I'm Done -->
+                <button class="mobile-rsvp-button mobile-done-button" onclick="goToConfirmation()" data-translate="form_done_button">
+                    He Terminado
+                </button>
+            </div>
         </section>
         
         <!-- Custom confirmation that will be shown after form submission -->
@@ -41,15 +63,6 @@
                 <p data-translate="rsvp_update">Si necesitas actualizar tu respuesta, por favor contáctanos directamente.</p>
                 <a href="index.html" class="button" data-translate="return_home">Volver al Inicio</a>
             </div>
-        </section>
-        
-        <!-- Mobile RSVP Container (shown on mobile) -->
-        <section id="mobile-rsvp-container" class="mobile-rsvp-container">
-            <h3 data-translate="rsvp_title">Confirma tu Asistencia</h3>
-            <p data-translate="mobile_form_description">Para una mejor experiencia en móvil, el formulario se abrirá en una nueva ventana. Una vez completado, regresarás automáticamente aquí.</p>
-            <button class="mobile-rsvp-button" onclick="openMobileForm()" data-translate="open_form_button">
-                Abrir Formulario
-            </button>
         </section>
 
         <!-- Desktop Google Form container (shown on desktop) -->
@@ -84,142 +97,177 @@
             }
             
             // Determine which interface to show based on screen size
-            if (window.matchMedia('(max-width: 480px)').matches) {
-                setupMobileRSVP();
-            } else {
-                setupDesktopRSVP();
-            }
+            setupResponsiveRSVP();
             
             // Handle screen size changes
-            window.addEventListener('resize', function() {
-                if (window.matchMedia('(max-width: 480px)').matches) {
-                    setupMobileRSVP();
-                } else {
-                    setupDesktopRSVP();
-                }
-            });
+            window.addEventListener('resize', setupResponsiveRSVP);
         });
 
-        function setupMobileRSVP() {
-            // Show mobile container, hide desktop form
-            const mobileContainer = document.getElementById('mobile-rsvp-container');
+        function setupResponsiveRSVP() {
+            const mobileSection = document.getElementById('mobile-rsvp-section');
             const desktopContainer = document.getElementById('google-form-container');
             
-            if (mobileContainer) mobileContainer.style.display = 'block';
-            if (desktopContainer) desktopContainer.classList.add('mobile-hidden');
-        }
-
-        function setupDesktopRSVP() {
-            // Show desktop form, hide mobile container
-            const mobileContainer = document.getElementById('mobile-rsvp-container');
-            const desktopContainer = document.getElementById('google-form-container');
-            
-            if (mobileContainer) mobileContainer.style.display = 'none';
-            if (desktopContainer) {
-                desktopContainer.classList.remove('mobile-hidden');
-                desktopContainer.style.display = 'block';
+            if (window.matchMedia('(max-width: 480px)').matches) {
+                // Mobile: show button in welcome section, hide desktop form
+                if (mobileSection) mobileSection.style.display = 'block';
+                if (desktopContainer) desktopContainer.style.display = 'none';
+            } else {
+                // Desktop: hide mobile button, show desktop form
+                if (mobileSection) mobileSection.style.display = 'none';
+                if (desktopContainer) {
+                    desktopContainer.style.display = 'block';
+                    setupDesktopIframe();
+                }
             }
-            
-            // Set up desktop iframe if needed
-            setupDesktopIframe();
         }
 
         function setupDesktopIframe() {
-            // Basic iframe setup for desktop - simplified from the original
+            // Restore the original working desktop iframe configuration
             const formIframe = document.getElementById('google-form');
-            if (!formIframe) return;
+            const viewport = document.getElementById('google-form-viewport');
+            const innerContainer = document.querySelector('.google-form-container');
             
-            // Set reasonable height for desktop
-            formIframe.style.height = '1200px';
-            formIframe.style.minHeight = '800px';
+            if (!formIframe || !viewport || !innerContainer) return;
             
-            // Listen for form submission on desktop (basic version)
+            // Original working configuration values
+            const HIDE_TOP_DESKTOP = 260;
+            const IFRAME_HEIGHT_DESKTOP = 1600;
+            const BOTTOM_GAP_DESKTOP = 172;
+            
+            // Set iframe height
+            formIframe.style.height = IFRAME_HEIGHT_DESKTOP + 'px';
+            formIframe.style.minHeight = '900px';
+            
+            // Calculate and set viewport height
+            let viewportHeight = IFRAME_HEIGHT_DESKTOP - HIDE_TOP_DESKTOP - BOTTOM_GAP_DESKTOP;
+            if (viewportHeight < 400) viewportHeight = 400;
+            viewport.style.height = viewportHeight + 'px';
+            
+            // Apply vertical shift to hide Google Forms header
+            innerContainer.style.transform = 'translateY(-' + HIDE_TOP_DESKTOP + 'px)';
+            
+            // Enhanced form submission detection for desktop
+            setupDesktopFormSubmissionDetection(formIframe);
+        }
+
+        function setupDesktopFormSubmissionDetection(formIframe) {
+            // Method 1: Enhanced iframe load detection
+            let loadCount = 0;
             formIframe.addEventListener('load', function() {
-                // Give it a moment for the form to potentially redirect
+                loadCount++;
+                console.log('Iframe load event #' + loadCount);
+                
+                // After the second load (first is initial, second is after submission)
+                if (loadCount >= 2) {
+                    setTimeout(() => {
+                        console.log('Form likely submitted, redirecting to confirmation...');
+                        window.location.href = 'rsvp.html?success=true';
+                    }, 1500); // Wait 1.5 seconds to ensure form processing
+                }
+                
+                // Fallback: try to read iframe content
                 setTimeout(function() {
-                    // Check if we should show confirmation (basic detection)
                     try {
                         const iframeDoc = formIframe.contentDocument || formIframe.contentWindow.document;
-                        if (iframeDoc.body.innerHTML.includes('Tu respuesta') || 
-                            iframeDoc.body.innerHTML.includes('Your response')) {
+                        const bodyText = iframeDoc.body.innerText || iframeDoc.body.textContent;
+                        
+                        if (bodyText.includes('Tu respuesta') || 
+                            bodyText.includes('Your response') ||
+                            bodyText.includes('ha sido registrada') ||
+                            bodyText.includes('has been recorded')) {
+                            console.log('Submission confirmation detected in iframe content');
                             window.location.href = 'rsvp.html?success=true';
                         }
                     } catch(e) {
-                        // Cross-origin restrictions - this is normal
-                        console.log('Cannot access iframe content (normal security restriction)');
+                        // Expected due to cross-origin restrictions
+                        console.log('Cannot access iframe content (normal behavior)');
                     }
-                }, 2000);
+                }, 1000);
             });
-        }
-
-        function openMobileForm() {
-            // Store that we're expecting a form submission
-            localStorage.setItem('weddingFormSubmissionPending', 'true');
-            localStorage.setItem('weddingFormOpenTime', Date.now().toString());
             
-            // Open form in new window
-            const formWindow = window.open(
-                'https://docs.google.com/forms/d/e/1FAIpQLSeelG8fN-NsqpAbFkOsk-njF7YsDxEsltkH589aCJOKVrMkYA/viewform',
-                'weddingRSVPForm',
-                'width=800,height=900,scrollbars=yes,resizable=yes'
-            );
-            
-            if (!formWindow) {
-                alert('Por favor permite ventanas emergentes para abrir el formulario de confirmación.');
-                return;
-            }
-            
-            // Monitor the form window
-            monitorFormWindow(formWindow);
-        }
-
-        function monitorFormWindow(formWindow) {
-            const checkInterval = setInterval(() => {
-                try {
-                    if (formWindow.closed) {
-                        clearInterval(checkInterval);
-                        handleFormWindowClosed();
+            // Method 2: Enhanced message listener
+            window.addEventListener('message', function(e) {
+                console.log('Message received from:', e.origin, 'Data:', e.data);
+                
+                if (e.origin.includes('google.com') || e.origin.includes('docs.google.com')) {
+                    if (typeof e.data === 'string') {
+                        const data = e.data.toLowerCase();
+                        if (data.includes('formresponse') || 
+                            data.includes('submitted') || 
+                            data.includes('confirmation') ||
+                            data.includes('close') ||
+                            data.includes('success')) {
+                            console.log('Form submission detected via message event');
+                            setTimeout(() => {
+                                window.location.href = 'rsvp.html?success=true';
+                            }, 1000);
+                        }
                     }
-                } catch (e) {
-                    clearInterval(checkInterval);
+                }
+            });
+            
+            // Method 3: Periodic iframe URL checking (enhanced)
+            let urlCheckCount = 0;
+            const checkIframeUrl = setInterval(function() {
+                urlCheckCount++;
+                try {
+                    const currentUrl = formIframe.contentWindow.location.href;
+                    console.log('Checking iframe URL:', currentUrl);
+                    
+                    if (currentUrl.includes('formResponse') || 
+                        currentUrl.includes('closedform') ||
+                        currentUrl.includes('thanks')) {
+                        console.log('Form submission detected via URL change');
+                        clearInterval(checkIframeUrl);
+                        window.location.href = 'rsvp.html?success=true';
+                    }
+                } catch(e) {
+                    // Expected due to cross-origin restrictions
+                }
+                
+                // Stop checking after 5 minutes
+                if (urlCheckCount > 300) {
+                    clearInterval(checkIframeUrl);
                 }
             }, 1000);
-            
-            // Stop checking after 10 minutes
-            setTimeout(() => {
-                clearInterval(checkInterval);
-            }, 600000);
         }
 
-        function handleFormWindowClosed() {
-            const wasFormPending = localStorage.getItem('weddingFormSubmissionPending');
-            const openTime = localStorage.getItem('weddingFormOpenTime');
-            
-            if (wasFormPending === 'true') {
-                const timePassed = Date.now() - parseInt(openTime || '0');
-                
-                if (timePassed > 30000) { // 30 seconds minimum - likely submitted
-                    localStorage.removeItem('weddingFormSubmissionPending');
-                    localStorage.removeItem('weddingFormOpenTime');
-                    window.location.href = 'rsvp.html?success=true';
-                } else {
-                    // Closed too quickly - probably cancelled
-                    localStorage.removeItem('weddingFormSubmissionPending');
-                    localStorage.removeItem('weddingFormOpenTime');
-                    // Don't do anything - let user try again
-                }
-            }
+        function openSimpleForm() {
+            // Open form in new tab - simple and reliable
+            window.open(
+                'https://docs.google.com/forms/d/e/1FAIpQLSeelG8fN-NsqpAbFkOsk-njF7YsDxEsltkH589aCJOKVrMkYA/viewform',
+                '_blank'
+            );
+        }
+
+        function goToConfirmation() {
+            // Direct redirect to thank you page
+            window.location.href = 'rsvp.html?success=true';
+        }
+
+        function redirectToConfirmation() {
+            localStorage.removeItem('weddingFormSubmissionPending');
+            localStorage.removeItem('weddingFormOpenTime');
+            console.log('Redirecting to confirmation page...');
+            window.location.href = 'rsvp.html?success=true';
         }
 
         function showConfirmationMessage() {
-            // Hide both form containers
-            const mobileContainer = document.getElementById('mobile-rsvp-container');
+            // Hide both form interfaces
+            const mobileSection = document.getElementById('mobile-rsvp-section');
             const desktopContainer = document.getElementById('google-form-container');
             const confirmationContainer = document.getElementById('custom-confirmation');
+            const welcomeSection = document.querySelector('.welcome');
             
-            if (mobileContainer) mobileContainer.style.display = 'none';
+            if (mobileSection) mobileSection.style.display = 'none';
             if (desktopContainer) desktopContainer.style.display = 'none';
             if (confirmationContainer) confirmationContainer.style.display = 'block';
+            
+            // Also hide the welcome section description to avoid duplication
+            if (welcomeSection) {
+                const welcomeP = welcomeSection.querySelector('p[data-translate="rsvp_description"]');
+                if (welcomeP) welcomeP.style.display = 'none';
+            }
             
             // Scroll to top
             window.scrollTo(0, 0);

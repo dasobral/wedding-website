@@ -66,8 +66,10 @@ const translations = {
         // RSVP page
         rsvp_title: "Confirmación de Asistencia",
         rsvp_description: "Necesitamos saber con antelación si podrás acompañarnos en nuestro día especial. Te pedimos amablemente tu respuesta antes del final de enero de 2026.",
-        mobile_form_description: "Por favor, haz click en el botón de abajo para abrir el formulario de confirmación de asistencia.",
+        mobile_form_description: "Completa el formulario y luego regresa aquí.",
         open_form_button: "Abrir Formulario",
+        form_done_button: "He Terminado",
+        button_separator_text: "↓ Tras completar el formulario ↓",
         rsvp_thank_you: "¡Gracias!",
         rsvp_received: "Hemos recibido tus datos y confirmación de asistencia. ¡Nos vemos pronto!",
         rsvp_update: "Si necesitas modificar tu respuesta, por favor contáctanos directamente. En caso de cancelación, necesitamos saberlo antes de que termine marzo de 2026.",
@@ -84,7 +86,7 @@ const translations = {
         
         // Home page
         header_date: "April 11, 2026",
-        home_title: "Let's Get Married!",
+        home_title: "We are getting married!",
         home_description: "It will be an enormous pleasure for you to come celebrate our special day with us. We've made this website so you have all the event information at hand. Keep in mind there might be changes between now and the wedding day. Oh, and don't forget to click the button below.",
         rsvp_button: "RSVP Now",
         countdown_title: "It's the final countdown...",
@@ -142,8 +144,10 @@ const translations = {
         // RSVP page
         rsvp_title: "RSVP to Our Wedding",
         rsvp_description: "We need to know in advance if you'll be able to join us on our special day. We kindly request your response before the end of January 2026.",
-        mobile_form_description: "Please click the button below to open the RSVP form.",
-        open_form_button: "Open Form",
+        mobile_form_description: "Complete the form and then return here.",
+        open_form_button: "Open Form", 
+        form_done_button: "I'm Done",
+        button_separator_text: "↓ After completing the form ↓",
         rsvp_thank_you: "Thank You!",
         rsvp_received: "We've received your details and attendance confirmation. See you soon!",
         rsvp_update: "If you need to modify your response, please contact us directly. In case of cancellation, we need to know before the end of March 2026.",
