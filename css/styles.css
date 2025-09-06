@@ -729,7 +729,7 @@ section {
     width: 100%;
     max-width: 100%;
     /* Moderate default height to avoid large empty area */
-    height: 900px;
+    height: 1100px;
     min-height: 600px;
     position: static; /* avoid absolute positioning which caused cropped content */
     display: block;

@@ -59,7 +59,7 @@ const translations = {
         dress_code_shoes: "Finalmente, recordar que la boda es en abril durante el día y que habrá que adaptarse a la climatología. La ceremonia tendrá lugar en la Iglesia del propio convento. Para el cóctel de bienvenida pasaremos al Claustro, que cuenta con un techo acristalado y climatización. El banquete muy probablemente tendrá lugar en uno de los salones del convento. Avisaremos con tiempo si esto cambia y decidimos que sea en uno de los patios exteriores. La fiesta con barra libre la haremos en una bodega climatizada, aunque dispone de una zona de patio al aire libre.",
         
         registry_title: "Regalos de Boda",
-        gifts_description: "Que vengas a celebrar con nosotros es el regalo más grande de todos. No hemos pensado en nada en particular y afortunadamente no nos falta de nada. Además, que en un par de días nos vamos de luna de miel y tampoco vamos a andar cargando con trastos... 😉",
+        gifts_description: "Que vengas a celebrar con nosotros es el regalo más grande de todos. No hemos pensado en nada en particular y, afortunadamente, tras estos años de convivencia no nos falta de nada en nuestro pequeño piso. Además, en un par de días nos vamos de luna de miel y tampoco vamos a andar cargando con bultos... Y lo mismo no volvemos 😉",
         
         // RSVP page
         rsvp_title: "Confirmación de Asistencia",
@@ -135,7 +135,7 @@ const translations = {
         dress_code_shoes: "Finally, remember that the wedding is in April during the day and you'll need to adapt to the weather. The ceremony will take place in the convent's own church. For the welcome cocktail we'll move to the Cloister, which has a glass roof and climate control. The banquet will most likely take place in one of the convent's halls. We'll give advance notice if this changes and we decide to have it in one of the outdoor patios. The open bar party we'll do in a climate-controlled cellar, although it has an outdoor patio area.",
         
         registry_title: "Wedding Gifts",
-        gifts_description: "Your coming to celebrate with us is the biggest gift of all. We haven't thought of anything in particular and fortunately we have everything we need. Plus we'll be on our honeymoon in a couple of days and we don't want to be burdened with stuff... 😉",
+        gifts_description: "Your coming to celebrate with us is the biggest gift of all. We haven't thought of anything in particular and, fortunately, after these years of living together we don't lack anything in our small apartment. Also, in a couple of days we're going on our honeymoon and we won't be carrying any luggage... And we might not even come back 😉",
 
         // RSVP page
         rsvp_title: "RSVP to Our Wedding",
