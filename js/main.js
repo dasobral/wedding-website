@@ -9,7 +9,7 @@ const translations = {
         // Home page
         header_date: "11 de abril, 2026",
         home_title: "¡Nos Casamos!",
-        home_description: "Será un enorme placer que vengas a celebrar nuestro día especiaL con nosotros. Hemos hecho esta web para que tengas a mano toda la información sobre el evento. Ojo, que puede haber cambios de aquí al día de la boda. Ah, y no olvides hacer click en el botón de aquí abajo.",
+        home_description: "Será un enorme placer que vengas a celebrar nuestro día especial con nosotros. Hemos hecho esta web para que tengas a mano toda la información sobre el evento. Ojo, que puede haber cambios de aquí al día de la boda. Ah, y no olvides hacer click en el botón de aquí abajo.",
         rsvp_button: "Confirmar Asistencia",
         countdown_title: "It's the final countdown...",
         countdown_days: "Días",
@@ -20,13 +20,13 @@ const translations = {
         
         // Details page
         details_title: "Detalles de la Boda",
-        details_description: "Toda la información relevante sobre el evento. Seguimos organizándolo todo así que puede haber algún pequeño cambio, ojo-cuidao.",
+        details_description: "Toda la información relevante sobre el evento. Seguimos organizándolo todo así que puede haber algún pequeño cambio, en particular el horario exacto, \"ojo-cuidao\".",
         ceremony_title: "Ceremonia y Recepción",
         venue_title: "El Lugar",
         venue_date: "Fecha: 11 de abril, 2026",
         venue_time: "Hora: 12:00 PM - 11:30 PM",
         venue_location: "Ubicación:",
-        venue_description: "La ceremonia y recepción se llevarán a cabo en el Antiguo Convento de la Encarnación de Boadilla del Monte. La ceremonia comenzará puntualmente a las 12:00 PM en la Iglesia del propio convento, parte de la Parroquia de San Cristóbal. Para el cóctel de bienvenida nos moveremos al Claustro del Convento y el banquete tendrá lugar en uno de sus salones.",
+        venue_description: "La ceremonia y recepción se llevarán a cabo en el Antiguo Convento de la Encarnación de Boadilla del Monte. La ceremonia comenzará puntualmente a las 12:00 PM en la Iglesia del propio convento, parte de la Parroquia de San Cristóbal. Para el cóctel de bienvenida nos moveremos al Claustro del Convento y el banquete tendrá lugar en uno de sus salones. Finalmente, la fiesta con barra libre será en una de sus bodegas climatizadas.",
         venue_information: "Información detallada para acceder al lugar (2 páginas)",
         download_pdf: "Descargar PDF",
         view_venue_guide: "Ver Guía del Lugar",
@@ -49,17 +49,17 @@ const translations = {
         timeline_ceremony: "Comienza la Ceremonia",
         timeline_cocktail: "Hora del Cóctel",
         timeline_reception: "Banquete",
-        timeline_dinner: "Fiesta con Barra libre (habrá recena más tarde)",
+        timeline_dinner: "Fiesta con barra libre y recena",
         timeline_farewell: "Despedida",
         
         dress_code_title: "Código de Vestimenta",
         formal_attire_title: "Vestimenta Formal",
         dress_code_description: "No hemos pensado en un código de vestimenta estricto, más allá de vestimenta formal habitual para este tipo de eventos, evitando en la medida de lo posible atuendos casual, zapatillas deportivas, etc, y teniendo en cuenta que tendrá lugar una ceremonia religiosa.",
         dress_code_men: "La única restricción es que las mujeres no pueden ir de blanco o tonos similares.",
-        dress_code_shoes: "Finalmente, recordar que la boda es en abril durante el día y que habrá que adaptarse a la climatología. La ceremonia tendrá lugar en la Iglesia del propio convento. Para el cóctel de bienvenida pasaremos al Claustro, que cuenta con un techo acristalado y climatización. El banquete muy probablemente tendrá lugar en uno de los salones del convento. Avisaremos con tiempo si esto cambia y decidimos que sea en uno de los patios exteriores. La fiesta con barra libre la haremos en una bodega climatizada, aunque dispone de una zona de patio al aire libre.",
+        dress_code_shoes: "Finalmente, recordar que la boda es en abril durante el día y que habrá que adaptarse a la climatología. El Claustro del convento, en el que tendrá lugar el cóctel, cuenta con un techo acristalado y climatización. El banquete tendrá lugar en uno de los salones del convento. Avisaremos con tiempo si esto cambia y decidimos que sea en uno de los patios exteriores. La bodega de la fiesta también está climatizada, aunque dispone de un patio al aire libre.",
         
-        registry_title: "Regalos de Boda",
-        gifts_description: "Que vengas a celebrar con nosotros es el regalo más grande de todos. No hemos pensado en nada en particular y, afortunadamente, tras estos años de convivencia no nos falta de nada en nuestro pequeño piso. Además, en un par de días nos vamos de luna de miel y tampoco vamos a andar cargando con bultos... Y lo mismo no volvemos 😉",
+        registry_title: "Lista de Regalos",
+        gifts_description: "Que vengas a celebrar con nosotros es el regalo más grande de todos. No hemos pensado en nada en particular y afortunadamente, tras estos años de convivencia, no nos falta de nada en nuestro pequeño piso. Además, en un par de días nos vamos de luna de miel y tampoco vamos a andar cargando con bultos... Y lo mismo no volvemos 😉",
         
         // RSVP page
         rsvp_title: "Confirmación de Asistencia",
@@ -96,13 +96,13 @@ const translations = {
         
         // Details page
         details_title: "Wedding Details",
-        details_description: "All relevant information about the event. We're still organizing everything so there might be some small changes, heads up.",
+    details_description: "All relevant information about the event. We're still organizing everything so there might be some small changes, particularly the exact schedule, heads up.",
         ceremony_title: "Ceremony & Reception",
         venue_title: "The Venue",
         venue_date: "Date: April 11th, 2026",
         venue_time: "Time: 12:00 PM - 11:30 PM",
         venue_location: "Location:",
-        venue_description: "The ceremony and reception will be held at the Antiguo Convento de la Encarnación in Boadilla del Monte. The ceremony will begin promptly at 12:00 PM in the convent's own church, part of San Cristóbal Parish. For the welcome cocktail we'll move to the Convent's Cloister, and the banquet will take place in one of its halls.",
+    venue_description: "The ceremony and reception will be held at the Antiguo Convento de la Encarnación in Boadilla del Monte. The ceremony will begin promptly at 12:00 PM in the convent's own church, part of San Cristóbal Parish. For the welcome cocktail we'll move to the Convent's Cloister and the banquet will take place in one of its halls. Finally, the party with an open bar will be held in one of its climate-controlled cellars.",
         venue_information: "Detailed information to access the venue (2 pages)",
         download_pdf: "Download PDF",
         view_venue_guide: "View Venue Guide",
@@ -125,17 +125,17 @@ const translations = {
         timeline_ceremony: "Ceremony Begins",
         timeline_cocktail: "Cocktail Hour",
         timeline_reception: "Banquet",
-        timeline_dinner: "Party with Open Bar (we will have snacks later on)",
+    timeline_dinner: "Party with Open Bar and late-night snacks",
         timeline_farewell: "Farewell",
         
         dress_code_title: "Dress Code",
         formal_attire_title: "Formal Attire",
         dress_code_description: "We haven't thought of a strict dress code, beyond formal attire for this type of events, avoiding as much as possible casual outfits, sneakers, etc., and keeping in mind there will be a religious ceremony.",
         dress_code_men: "The only restriction is that women cannot wear white or similar tones.",
-        dress_code_shoes: "Finally, remember that the wedding is in April during the day and you'll need to adapt to the weather. The ceremony will take place in the convent's own church. For the welcome cocktail we'll move to the Cloister, which has a glass roof and climate control. The banquet will most likely take place in one of the convent's halls. We'll give advance notice if this changes and we decide to have it in one of the outdoor patios. The open bar party we'll do in a climate-controlled cellar, although it has an outdoor patio area.",
+    dress_code_shoes: "Finally, remember that the wedding is in April during the day and you'll need to adapt to the weather. The Cloister, where the welcome cocktail will take place, has a glass roof and climate control. The banquet will take place in one of the convent's halls; we'll notify you in advance if this changes and we decide to use one of the outdoor patios. The party's cellar is also climate-controlled, although it has an outdoor patio area.",
         
         registry_title: "Wedding Gifts",
-        gifts_description: "Your coming to celebrate with us is the biggest gift of all. We haven't thought of anything in particular and, fortunately, after these years of living together we don't lack anything in our small apartment. Also, in a couple of days we're going on our honeymoon and we won't be carrying any luggage... And we might not even come back 😉",
+    gifts_description: "Your coming to celebrate with us is the biggest gift of all. We haven't thought of anything in particular and, fortunately, after these years of living together we don't lack anything in our small apartment. Also, in a couple of days we're going on our honeymoon and we won't be carrying any luggage... And we might not even come back 😉",
 
         // RSVP page
         rsvp_title: "RSVP to Our Wedding",
